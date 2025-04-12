@@ -1,87 +1,116 @@
-# Welcome to React Router!
+# Tutr - Modern Tutoring Platform
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Overview
+Tutr is a modern web application that revolutionizes online tutoring by providing a streamlined platform for educators and learners. Think "Uber Eats meets Tutoring" - an intuitive platform that connects teachers with learning opportunities.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+### Core Features
+- 🎓 Interactive Teaching Interface
+- 📝 Notes Upload Functionality 
+- 🎥 Integrated Studio for Content Creation
+- 🔍 Smart Search System
+- 📱 Responsive Design with Mobile Support
+- 🎨 Modern, Dark-themed UI
+- 🔐 User Authentication System
+
+### Technical Features
+- Server-Side Rendering (SSR) Support
+- React Router for Navigation
+- TypeScript for Type Safety
+- TailwindCSS for Styling
+- Containerized with Docker
+- Focus on Accessibility
 
 ## Getting Started
 
+### Prerequisites
+- Node.js 20.x or higher
+- npm (comes with Node.js)
+
 ### Installation
 
-Install the dependencies:
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd tutr
+```
 
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server with HMR:
-
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The application will be available at `http://localhost:5173`.
 
-## Building for Production
+### Build for Production
 
 Create a production build:
-
 ```bash
 npm run build
 ```
 
-## Deployment
+Start the production server:
+```bash
+npm run start
+```
 
 ### Docker Deployment
 
-To build and run using Docker:
-
+Build and run using Docker:
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+docker build -t tutr .
+docker run -p 3000:3000 tutr
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## Project Structure
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+app/
+├── components/     # Reusable UI components
+├── contexts/       # React contexts (Auth, etc.)
+├── layouts/        # Layout components
+├── routes/         # Route components
+├── styles/         # CSS styles
+└── welcome/        # Welcome/Guest pages
 ```
 
-## Styling
+## Technologies
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+- **Frontend Framework**: React
+- **Router**: React Router
+- **Styling**: TailwindCSS + Custom CSS
+- **Type Checking**: TypeScript
+- **State Management**: React Context
+- **Build Tool**: Vite
+- **Containerization**: Docker
 
----
+## Development
 
-Built with ❤️ using React Router.
+### TypeScript
+
+The project uses TypeScript for type safety. Run type checking with:
+```bash
+npm run typecheck
+```
+
+### Styling
+
+The project uses a combination of TailwindCSS and custom CSS for styling. The dark theme is consistently applied throughout the application.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## License
+
+[License Type] - see the LICENSE.md file for details
