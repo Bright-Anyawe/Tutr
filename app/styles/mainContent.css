@@ -1,0 +1,434 @@
+/* Main layout */
+.guest-container {
+  min-height: 100vh;
+  background: #0D0D0B;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 580px;
+  position: relative;
+  padding-top: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.content.sidebar-open {
+  max-width: calc(100vw - 290px);
+}
+
+/* Badge styles */
+.badge {
+  height: 39px;
+  padding: 0 20px;
+  background: white;
+  box-shadow: 0px 0px 7.2px rgba(232, 241, 248, 0.63);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.badge-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.badge-text {
+  color: #1C75BD;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+}
+
+/* Title styles */
+.title {
+  color: white;
+  font-size: 48px;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 32px;
+  line-height: 1.2;
+  max-width: 520px;
+}
+
+.search-container {
+  width: 100%;
+  padding: 12px;
+  background: #2C2C2C;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.search-input {
+  width: 100%;
+  height: 49px;
+  padding: 0 16px;
+  background: #3E3E3E;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search-field {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #8E8E8E;
+  font-size: 18px;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  outline: none;
+}
+
+.search-field::placeholder {
+  color: #8E8E8E;
+}
+
+.search-actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.action-group {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  display: flex;
+}
+
+.upload-button, .studio-button {
+  height: 37px;
+  padding: 0 10px;
+  background: #333333;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.upload-button:hover, .studio-button:hover {
+  background: #404040;
+}
+
+.button-icon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.button-text {
+  color: #8E8E8E;
+  font-size: 14px;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-weight: 500;
+}
+
+.search-button {
+  width: 30px;
+  height: 30px;
+  background: #1C75BD;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.search-button:hover {
+  background: #2286d4;
+}
+
+.search-dot {
+  width: 4.5px;
+  height: 4.5px;
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.search-dot.left {
+  left: 11px;
+  top: 13px;
+}
+
+.search-dot.right {
+  left: 15.5px;
+  top: 13px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Screen reader only styles */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Dashboard-specific styles */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: #0D0D0B;
+  flex-direction: column;
+}
+
+.layout-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  padding-top: 80px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.layout-wrapper.sidebar-visible {
+  margin-left: 250px;
+}
+
+.layout-wrapper.transitioning {
+  pointer-events: none;
+  will-change: margin-left;
+}
+
+.layout-wrapper.transitioning * {
+  pointer-events: none;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-title {
+  color: white;
+  font-size: 32px;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-weight: 500;
+  margin-bottom: 32px;
+  margin: 0 0 32px 0;
+}
+
+.action-button {
+  height: 37px;
+  padding: 0 16px;
+  background: #333333;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  color: #8E8E8E;
+  font-size: 14px;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.action-button:hover {
+  background: #404040;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 140px 24px 0;
+    gap: 20px;
+  }
+
+  .content.sidebar-open {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+
+  .search-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .upload-button, .studio-button {
+    flex: 1;
+  }
+
+  .search-button {
+    width: 100%;
+    height: 37px;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+
+  .search-dot.left {
+    left: calc(50% - 4px);
+  }
+
+  .search-dot.right {
+    left: calc(50% + 1px);
+  }
+
+  .main-content {
+    margin-left: 240px;
+    padding: 16px;
+    padding-top: 84px;
+  }
+
+  .welcome-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .layout-wrapper {
+    padding-top: 60px;
+  }
+
+  .layout-wrapper.sidebar-visible {
+    margin-left: 240px;
+  }
+
+  .main-content {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 120px 16px 0;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .badge {
+    height: 32px;
+    padding: 0 16px;
+  }
+
+  .badge-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .badge-text {
+    font-size: 14px;
+  }
+
+  .search-container {
+    padding: 10px;
+    gap: 16px;
+  }
+
+  .search-input {
+    height: 42px;
+  }
+
+  .search-field {
+    font-size: 16px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .upload-button, .studio-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .button-text {
+    font-size: 13px;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 12px;
+    padding-top: 74px;
+  }
+
+  .welcome-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .layout-wrapper.sidebar-visible {
+    margin-left: 0;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+}

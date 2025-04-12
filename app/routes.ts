@@ -1,3 +1,12 @@
-import { type RouteConfig, index } from "@react-router/dev/routes";
+import React from "react";
+import type { RouteObject } from "react-router-dom";
+import GuestPage from "./routes/guestPage";
 
-export default [index("routes/home.tsx")] satisfies RouteConfig;
+const routes: RouteObject[] = [
+  {
+    path: "/",
+    element: React.createElement(GuestPage),
+  },
+];
+
+export default routes;
