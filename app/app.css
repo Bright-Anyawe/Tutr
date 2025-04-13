@@ -8,8 +8,23 @@
 html,
 body {
   @apply bg-white dark:bg-gray-950;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #0D0D0B;
+  position: relative;
 }

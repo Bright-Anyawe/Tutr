@@ -6,20 +6,61 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.content {
+  padding-top: 100px;
+  z-index: 1;
   width: 100%;
   max-width: 580px;
-  margin: 0 auto;
-  padding-top: 120px;
+}
+
+.guest-content {
+  width: 100%;
+  max-width: 580px;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  min-height: 100vh;
+  background: #0D0D0B;
   position: relative;
-  z-index: 1;
+  z-index: 20;
+}
+
+  /* Base Layout */
+.app-container {
+  min-height: 100vh;
+  background: #0D0D0B;
+  position: relative;
+}
+
+.app-body {
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
+}
+
+.main-area {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  transition: padding-left 0.3s ease;
+}
+
+.main-area.sidebar-expanded {
+  padding-left: 250px;
+}
+
+/* Content Area */
+.content {
+  width: 100%;
+  max-width: 580px;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
 .content.sidebar-open {
@@ -226,20 +267,12 @@
 }
 
 /* Dashboard-specific styles */
-.app-container {
-  display: flex;
-  min-height: 100vh;
-  background: #0D0D0B;
-  flex-direction: column;
-}
-
 .layout-wrapper {
-  display: flex;
-  width: 100%;
-  min-height: calc(100vh - 80px);
   padding-top: 80px;
-  transition: all 0.3s ease;
-  flex: 1;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  transition: margin-left 0.3s ease;
 }
 
 .layout-wrapper.sidebar-visible {
@@ -290,6 +323,31 @@
 
 .action-button:hover {
   background: #404040;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.main-content-wrapper {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  transition: margin-left 0.3s ease;
+  padding: 0 20px;
+  margin-top: 80px; /* Add margin to account for header */
+}
+
+.main-content-wrapper.sidebar-visible {
+  margin-left: 250px;
 }
 
 /* Responsive Styles */
