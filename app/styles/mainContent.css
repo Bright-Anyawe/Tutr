@@ -11,12 +11,15 @@
 .content {
   width: 100%;
   max-width: 580px;
-  position: relative;
-  padding-top: 180px;
+  margin: 0 auto;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .content.sidebar-open {

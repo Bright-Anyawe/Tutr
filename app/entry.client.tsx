@@ -3,23 +3,25 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import routes from './routes';
-import type { RouteObject } from 'react-router-dom';
+import type { ExtendedRouteObject } from './routes';
+// Recursive function to render routes with nested children
+const renderRoutes = (routes: ExtendedRouteObject[]): JSX.Element[] =>
+  routes.map(({ path, element, errorElement, children }, index) => (
+    <Route
+      key={path || index}
+      path={path}
+      element={element}
+      errorElement={errorElement}
+    >
+      {children ? renderRoutes(children as ExtendedRouteObject[]) : null}
+    </Route>
+  ));
 
 const App = () => (
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          {routes.map((route: RouteObject) =>
-            route.path ? (
-              <Route
-                key={route.path}
-                path={route.path}
-                element={route.element}
-              />
-            ) : null
-          )}
-        </Routes>
+        <Routes>{renderRoutes(routes)}</Routes>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
@@ -27,6 +29,5 @@ const App = () => (
 
 const container = document.getElementById('root');
 if (container) {
-  const root = createRoot(container);
-  root.render(<App />);
+  createRoot(container).render(<App />);
 }

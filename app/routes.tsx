@@ -4,7 +4,7 @@ import AppLayout from "./layouts/AppLayout";
 import { ErrorBoundary } from "./root";
 import GuestPage from "./routes/guestPage";
 import Dashboard from "./routes/dashboard";
-import NotFound from "./routes/notFound"; // Import a NotFound component
+import NotFound from "./routes/notFound";
 
 export type ExtendedRouteObject = RouteObject & {
   file?: string;
@@ -15,7 +15,7 @@ const routes: ExtendedRouteObject[] = [
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <ErrorBoundary error={null} />,
+    errorElement: <ErrorBoundary error={null} params={{}} />,
     file: "layouts/AppLayout.tsx",
     children: [
       {
@@ -32,7 +32,7 @@ const routes: ExtendedRouteObject[] = [
   },
   {
     path: "*",
-    element: <NotFound />, 
+    element: <NotFound />,
     file: "routes/notFound.tsx"
   }
 ];

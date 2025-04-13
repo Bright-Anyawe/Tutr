@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import Header from "../layouts/header";
 import Badge from "../components/badge";
-import Sidebar from "../layouts/sideBar";
 import "../styles/mainContent.css";
 
 function GuestPage() {
@@ -19,77 +17,73 @@ function GuestPage() {
   };
 
   return (
-    <div className="guest-container">
-      <Header />
-      <Sidebar />
-      <main className="content" role="main">
-        <Badge />
-        <h1 className="title">Like Uber Eats Meet Tutoring</h1>
-        
-        <form 
-          className="search-container" 
-          onSubmit={handleSearchSubmit}
-          role="search"
-        >
-          <div className="search-input">
-            <input
-              type="text"
-              className="search-field"
-              placeholder="What do you want to teach today?"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              aria-label="Search teaching topics"
-            />
-          </div>
+    <main className="content" role="main">
+      <Badge />
+      <h1 className="title">Like Uber Eats Meet Tutoring</h1>
+      
+      <form 
+        className="search-container" 
+        onSubmit={handleSearchSubmit}
+        role="search"
+      >
+        <div className="search-input">
+          <input
+            type="text"
+            className="search-field"
+            placeholder="What do you want to teach today?"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search teaching topics"
+          />
+        </div>
 
-          <div className="search-actions">
-            <div className="action-buttons">
-              <button 
-                type="button" 
-                className="upload-button"
-                aria-label="Upload Notes"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/plusIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Upload Notes</span>
-              </button>
-              <button 
-                type="button" 
-                className="studio-button"
-                aria-label="Open Studio"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/videoIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Open Studio</span>
-              </button>
-            </div>
-
+        <div className="search-actions">
+          <div className="action-buttons">
             <button 
-              type="submit" 
-              className="search-button"
-              aria-label="Search"
-              disabled={!searchQuery.trim()}
+              type="button" 
+              className="upload-button"
+              aria-label="Upload Notes"
             >
-              <img 
-                    src="/Icons/exportIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-              />
+              <span className="button-icon">
+                <img 
+                  src="/Icons/plusIcon.png" 
+                  alt="" 
+                  aria-hidden="true"
+                />
+              </span>
+              <span className="button-text">Upload Notes</span>
+            </button>
+            <button 
+              type="button" 
+              className="studio-button"
+              aria-label="Open Studio"
+            >
+              <span className="button-icon">
+                <img 
+                  src="/Icons/videoIcon.png" 
+                  alt="" 
+                  aria-hidden="true"
+                />
+              </span>
+              <span className="button-text">Open Studio</span>
             </button>
           </div>
-        </form>
-      </main>
-    </div>
+
+          <button 
+            type="submit" 
+            className="search-button"
+            aria-label="Search"
+            disabled={!searchQuery.trim()}
+          >
+            <img 
+              src="/Icons/exportIcon.png" 
+              alt="" 
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+      </form>
+    </main>
   );
 }
 

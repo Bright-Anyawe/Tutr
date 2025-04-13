@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import '../styles/sideBar.css';
 
 const Sidebar: React.FC = () => {
-  const { isLoggedIn, isSidebarExpanded, toggleSidebar } = useAuth();
+  const { isSidebarExpanded, toggleSidebar } = useAuth();
   const [activeItem, setActiveItem] = useState<string>('');
   const sidebarRef = useRef<HTMLElement>(null);
   const touchStartXRef = useRef<number>(0);
@@ -55,8 +55,6 @@ const Sidebar: React.FC = () => {
       document.removeEventListener('keydown', handleEscape);
     };
   }, [isSidebarExpanded, toggleSidebar]);
-
-  if (!isLoggedIn) return null;
 
   const sidebarStyle = isDragging ? {
     transform: `translateX(-${dragOffset}px)`,

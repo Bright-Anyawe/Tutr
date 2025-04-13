@@ -10,8 +10,9 @@ export default defineConfig({
     include: ["react", "react-dom", "react-router-dom"],
   },
   server: {
-    host: 'localhost',
-    port: 5173,
+    host: true,
+    port: 5174,
+    strictPort: false,
     open: true,
     fs: {
       allow: [resolve('./')],

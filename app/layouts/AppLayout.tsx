@@ -47,23 +47,21 @@ const AppLayout: React.FC = () => {
         {isSidebarExpanded ? 'Sidebar opened' : 'Sidebar closed'}
       </div>
       <Header />
-      {isLoggedIn && (
-        <Suspense fallback={null}>
-          <FocusTrap
-            active={isSidebarExpanded}
-            focusTrapOptions={{
-              onActivate: handleSidebarOpen,
-              allowOutsideClick: true,
-              initialFocus: false,
-              clickOutsideDeactivates: true,
-            }}
-          >
-            <div>
-              <Sidebar />
-            </div>
-          </FocusTrap>
-        </Suspense>
-      )}
+      <Suspense fallback={null}>
+        <FocusTrap
+          active={isSidebarExpanded}
+          focusTrapOptions={{
+            onActivate: handleSidebarOpen,
+            allowOutsideClick: true,
+            initialFocus: false,
+            clickOutsideDeactivates: true,
+          }}
+        >
+          <div>
+            <Sidebar />
+          </div>
+        </FocusTrap>
+      </Suspense>
       <div 
         ref={mainContentRef}
         className={`layout-wrapper ${isSidebarExpanded ? 'sidebar-visible' : ''} ${isTransitioning ? 'transitioning' : ''}`}
