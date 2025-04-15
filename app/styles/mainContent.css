@@ -25,31 +25,46 @@
   z-index: 20;
 }
 
-  /* Base Layout */
+/* Base Layout */
 .app-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+    "header"
+    "body";
   min-height: 100vh;
-  background: #0D0D0B;
-  position: relative;
+  background-color: #080808;
+}
+
+header.header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .app-body {
-  min-height: calc(100vh - 80px);
-  margin-top: 80px;
+  grid-area: body;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "sidebar main";
+  height: calc(100vh - 80px); /* Adjust based on your header height */
+  margin-top: 20px; /* Gap between header and body */
+}
+
+.sidebar {
+  grid-area: sidebar;
 }
 
 .main-area {
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  transition: padding-left 0.3s ease;
+  grid-area: main;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  overflow-y: auto;
 }
 
 .main-area.sidebar-expanded {
-  padding-left: 250px;
+  margin-left: 20px; /* Gap between sidebar and main content */
 }
 
 /* Content Area */
@@ -61,6 +76,15 @@
   flex-direction: column;
   align-items: center;
   gap: 24px;
+}
+
+.guest-page {
+  
+  display: flex
+  ;
+      align-items: center;
+      justify-content: center;
+  
 }
 
 .content.sidebar-open {
@@ -124,12 +148,13 @@
 }
 
 .search-input {
-  width: 100%;
+  width: 98%;
   height: 49px;
-  padding: 0 16px;
+  padding: 0 0 0 10px;
   background: #3E3E3E;
   border-radius: 10px;
-  display: flex;
+  display: flex
+;
   align-items: center;
 }
 
@@ -420,6 +445,31 @@
   .main-content {
     padding: 24px;
   }
+
+  .app-body {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main";
+    margin-top: 15px;
+  }
+  
+  .main-area {
+    margin-left: 0;
+  }
+  
+  .main-area.sidebar-expanded {
+    margin-left: 0;
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: -250px;
+    transition: left 0.3s ease;
+    z-index: 90;
+  }
+  
+  .sidebar.expanded {
+    left: 0;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -491,5 +541,13 @@
 
   .main-content {
     padding: 16px;
+  }
+
+  .main-area {
+    margin-left: 0;
+  }
+  
+  .main-area.sidebar-expanded {
+    margin-left: 250px;
   }
 }

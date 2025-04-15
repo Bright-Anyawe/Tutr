@@ -1,0 +1,108 @@
+import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import Badge from "../components/badge";
+import "../styles/mainContent.css";
+import styles from '../styles/guestContent.module.css';
+
+const GuestContent: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const { isLoggedIn } = useAuth();
+  const [welcomeMessage, setWelcomeMessage] = useState("Like Uber Eats Meet Tutoring");
+
+  useEffect(() => {
+    // For testing purposes, we'll use a mock user
+    const mockUser = {
+      isLoggedIn: true, // Change this to false to test the initial state
+      username: "dara"
+    };
+
+    if (mockUser.isLoggedIn) {
+      setWelcomeMessage(`Welcome ${mockUser.username}`);
+    } else {
+      setWelcomeMessage("Like Uber Eats Meet Tutoring");
+    }
+  }, []);
+
+  if (isLoggedIn) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
+  return (
+    <section className="guest-page">
+      <div className={styles.content}>
+        <Badge />
+        <h1 className={styles.title}>{welcomeMessage}</h1>
+        
+        <form 
+          className="search-container" 
+          onSubmit={handleSearchSubmit}
+          role="search"
+        >
+          <div className="search-input">
+            <input
+              type="text"
+              className="search-field"
+              placeholder="What do you want to teach today?"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search teaching topics"
+            />
+          </div>
+
+          <div className="search-actions">
+            <div className="action-buttons">
+              <button 
+                type="button" 
+                className="upload-button"
+                aria-label="Upload Notes"
+              >
+                <span className="button-icon">
+                  <img 
+                    src="/Icons/plusIcon.png" 
+                    alt="" 
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="button-text">Upload Notes</span>
+              </button>
+              <button 
+                type="button" 
+                className="studio-button"
+                aria-label="Open Studio"
+              >
+                <span className="button-icon">
+                  <img 
+                    src="/Icons/videoIcon.png" 
+                    alt="" 
+                    aria-hidden="true"
+                  />
+                </span>
+                <span className="button-text">Open Studio</span>
+              </button>
+            </div>
+
+            <button 
+              type="submit" 
+              className="search-button"
+              aria-label="Search"
+              disabled={!searchQuery.trim()}
+            >
+              <img 
+                src="/Icons/exportIcon.png" 
+                alt="" 
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+export default GuestContent;
