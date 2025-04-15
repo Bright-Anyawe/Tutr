@@ -1,9 +1,11 @@
 import "../styles/header.css";
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -14,6 +16,10 @@ const Header: React.FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const handleLogin = () => {
+    navigate('/auth');
+  };
 
   return (
     <>
@@ -37,7 +43,10 @@ const Header: React.FC = () => {
                 </p>
               </section>
               <section className="auth-buttons">
-                <button className="login-button">
+                <button 
+                  className="login-button"
+                  onClick={handleLogin}
+                >
                   Log In
                 </button>
                 <button className="signup-button">

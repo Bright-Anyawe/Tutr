@@ -1,13 +1,15 @@
 .header {
   width: 100%;
   padding: 20px 5%;
-  position: fixed;
+  position: relative;
   background: linear-gradient(0deg, 0%, 100%), #0D0D0B;
   border-bottom: 0.50px #282828 solid;
   justify-content: space-between;
   align-items: center;
   display: flex;
   z-index: 1000;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .logo {
