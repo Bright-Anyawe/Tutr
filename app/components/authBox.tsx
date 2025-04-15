@@ -5,11 +5,23 @@ interface AuthBoxProps {
   email: string;
   onEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onEmailSubmit: () => void;
+  isLogin?: boolean; // Make it optional with default value
 }
 
-const AuthBox: React.FC<AuthBoxProps> = ({ email, onEmailChange, onEmailSubmit }) => {
+const AuthBox: React.FC<AuthBoxProps> = ({ 
+  email, 
+  onEmailChange, 
+  onEmailSubmit,
+  isLogin: initialIsLogin = true // Default to login mode if not provided
+}) => {
   const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(initialIsLogin);
+  
+  // Update internal state when prop changes
+  useEffect(() => {
+    setIsLogin(initialIsLogin);
+  }, [initialIsLogin]);
+  
   // Check if email is valid whenever it changes
   useEffect(() => {
     setIsEmailValid(email.trim().length > 0);
