@@ -1,0 +1,128 @@
+.guestContent {
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 32px;
+}
+
+.searchContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.searchInput {
+  margin-bottom: 24px;
+}
+
+.searchField {
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.searchField::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.uploadButton,
+.studioButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.uploadButton:hover,
+.studioButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.buttonIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.searchButton {
+  padding: 12px;
+  border-radius: 8px;
+  background: #0066FF;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.searchButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.searchButton img {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .guestContent {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .searchActions {
+    flex-direction: column;
+  }
+
+  .actionButtons {
+    width: 100%;
+  }
+
+  .uploadButton,
+  .studioButton {
+    flex: 1;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+} 
