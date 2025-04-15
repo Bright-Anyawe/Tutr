@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/headerActions.css';
 
@@ -16,15 +16,35 @@ const HeaderActions: React.FC<HeaderActionsProps> = ({
   onSignup
 }) => {
   const { isLoggedIn, userName } = useAuth();
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   const renderAuthenticatedActions = () => (
     <div className="user-profile-container">
       <div className="premium-badge">Premium</div>
-      <div className="user-profile">
+      <div className="user-profile" onClick={toggleDropdown}>
         <div className="profile-image-placeholder">
-          {userName?.charAt(0) || 'U'}
+          {userName?.charAt(0).toUpperCase() || 'U'}
         </div>
         <span className="dropdown-arrow">▼</span>
+        
+        {showDropdown && (
+          <div className="profile-dropdown">
+            <div className="profile-dropdown-header">
+              <span className="profile-name">{userName}</span>
+              <span className="profile-email">user@example.com</span>
+            </div>
+            <div className="profile-dropdown-divider"></div>
+            <ul className="profile-dropdown-menu">
+              <li className="profile-dropdown-item">Profile</li>
+              <li className="profile-dropdown-item">Settings</li>
+              <li className="profile-dropdown-item">Help Center</li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

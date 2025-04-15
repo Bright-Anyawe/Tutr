@@ -7,9 +7,15 @@ interface VerifyEmailProps {
   email: string;
   onVerify: (code: string) => void;
   onPasswordLogin: (password: string) => void;
+  isLogin?: boolean;
 }
 
-const VerifyEmail: React.FC<VerifyEmailProps> = ({ email, onVerify, onPasswordLogin }) => {
+const VerifyEmail: React.FC<VerifyEmailProps> = ({ 
+  email, 
+  onVerify, 
+  onPasswordLogin,
+  isLogin = true
+}) => {
   const [code, setCode] = useState(['', '', '', '', '']);
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -54,7 +60,7 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({ email, onVerify, onPasswordLo
     // Submit verification code
     onVerify(verificationCode);
     
-    // Login the user
+    // Login the user with their email
     login(email);
     
     // Navigate to the main app page (root path)
@@ -67,7 +73,7 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({ email, onVerify, onPasswordLo
       // Submit password for login
       onPasswordLogin(password);
       
-      // Login the user
+      // Login the user with their email
       login(email);
       
       // Navigate to the main app page (root path)
