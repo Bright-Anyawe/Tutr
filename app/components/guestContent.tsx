@@ -7,7 +7,7 @@ import styles from '../styles/guestContent.module.css';
 
 const GuestContent: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, userName } = useAuth();
   const [welcomeMessage, setWelcomeMessage] = useState("Like Uber Eats Meet Tutoring");
 
   useEffect(() => {
@@ -22,11 +22,10 @@ const GuestContent: React.FC = () => {
     } else {
       setWelcomeMessage("Like Uber Eats Meet Tutoring");
     }
-  }, []);
+  }, [userName]);
 
-  if (isLoggedIn) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  // If the user is logged in, don't redirect, just show them the content
+  // This allows the home page to function as both a guest and logged-in landing page
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();

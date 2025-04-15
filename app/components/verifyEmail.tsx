@@ -51,17 +51,27 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({ email, onVerify, onPasswordLo
   };
 
   const handleVerification = (verificationCode: string) => {
-    // Here you would typically verify the code with your backend
+    // Submit verification code
+    onVerify(verificationCode);
+    
+    // Login the user
     login(email);
-    navigate('/dashboard');
+    
+    // Navigate to the main app page (root path)
+    navigate('/');
   };
 
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password) {
-      // Here you would typically verify the password with your backend
+      // Submit password for login
+      onPasswordLogin(password);
+      
+      // Login the user
       login(email);
-      navigate('/dashboard');
+      
+      // Navigate to the main app page (root path)
+      navigate('/');
     }
   };
 
@@ -118,7 +128,6 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({ email, onVerify, onPasswordLo
           </button>
         </form>
       </div>
-
     </div>
   );
 };

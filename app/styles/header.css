@@ -177,6 +177,13 @@
   .trial-banner {
     display: none;
   }
+
+  .user-section {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -192,4 +199,16 @@
     padding: 6px 12px;
     font-size: 0.8rem;
   }
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-name {
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
