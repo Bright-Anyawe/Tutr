@@ -1,13 +1,21 @@
 import React from 'react';
-import { Upload, Mic } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import styles from '../../styles/common/actionButtons.module.css';
 
 export const UploadButton: React.FC = () => {
   return (
-    <button className={`${styles.actionButton} ${styles.uploadButton}`}>
-      <Upload className={styles.buttonIcon} />
-      <span className={styles.buttonText}>Upload Notes</span>
+    <button 
+      type="button" 
+      className="upload-button"
+      aria-label="Upload Notes"
+    >
+      <span className="button-icon">
+        <img 
+          src="/Icons/plusIcon.png" 
+          alt="" 
+          aria-hidden="true"
+        />
+      </span>
+      <span className="button-text">Upload Notes</span>
     </button>
   );
 };
@@ -15,13 +23,25 @@ export const UploadButton: React.FC = () => {
 export const StudioButton: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleStudioClick = () => {
+    navigate('/studio');
+  };
+
   return (
     <button 
-      className={`${styles.actionButton} ${styles.studioButton}`}
-      onClick={() => navigate('/studio')}
+      type="button" 
+      className="studio-button"
+      aria-label="Open Studio"
+      onClick={handleStudioClick}
     >
-      <Mic className={styles.buttonIcon} />
-      <span className={styles.buttonText}>Open Studio</span>
+      <span className="button-icon">
+        <img 
+          src="/Icons/videoIcon.png" 
+          alt="" 
+          aria-hidden="true"
+        />
+      </span>
+      <span className="button-text">Open Studio</span>
     </button>
   );
 }; 

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import Badge from "../components/badge";
 import "../styles/mainContent.css";
+import { UploadButton, StudioButton } from '../components/common/ActionButtons';
 
 function GuestPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -44,34 +45,8 @@ function GuestPage() {
 
           <div className="search-actions">
             <div className="action-buttons">
-              <button 
-                type="button" 
-                className="upload-button"
-                aria-label="Upload Notes"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/plusIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Upload Notes</span>
-              </button>
-              <button 
-                type="button" 
-                className="studio-button"
-                aria-label="Open Studio"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/videoIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Open Studio</span>
-              </button>
+              <UploadButton />
+              <StudioButton />
             </div>
 
             <button 
