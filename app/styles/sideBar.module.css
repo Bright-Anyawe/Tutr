@@ -1,0 +1,116 @@
+.sidebarContainer {
+  padding: 16px;
+  margin-top: 30px;
+}
+
+.sidebar {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px 12px 0 0;
+  height: calc(100vh - 112px);
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  background: transparent;
+}
+
+.expanded {
+  width: 250px;
+}
+
+.sidebarHeader {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 73px;
+}
+
+.sidebar.collapsed .sidebarHeader {
+  padding: 0;
+  position: fixed;
+  left: 81px;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.toggleButton:hover {
+  color: #ffffff;
+}
+
+.chatButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 8px;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.chatButton:hover {
+  color: #ffffff;
+}
+
+.sidebarContent {
+  padding: 0 16px;
+}
+
+.sidebar.collapsed .sidebarContent,
+.sidebar.collapsed .sidebarBody {
+  display: none;
+}
+
+.createButton {
+  width: 100%;
+  padding: 8px 16px;
+  background: #0066FF;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.createButton:hover {
+  background: #0052CC;
+}
+
+.createButtonCollapsed {
+  padding: 8px;
+  justify-content: center;
+}
+
+.sidebarBody {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mdBlock {
+    display: block;
+  }
+}
