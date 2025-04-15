@@ -1,29 +1,17 @@
+import './styles/reset.css';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
-import routes from './routes';
-import type { ExtendedRouteObject } from './routes';
-// Recursive function to render routes with nested children
-const renderRoutes = (routes: ExtendedRouteObject[]): JSX.Element[] =>
-  routes.map(({ path, element, errorElement, children }, index) => (
-    <Route
-      key={path || index}
-      path={path}
-      element={element}
-      errorElement={errorElement}
-    >
-      {children ? renderRoutes(children as ExtendedRouteObject[]) : null}
-    </Route>
-  ));
+import router from './routes/routes';
+import './app.css';
+import './styles/global.css';
 
 const App = () => (
   <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>{renderRoutes(routes)}</Routes>
-      </AuthProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
 
