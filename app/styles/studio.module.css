@@ -1,0 +1,45 @@
+.studioPage {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #080808;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.lessonInfo {
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.lessonInfo h2 {
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.lessonInfo p {
+  color: #808080;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.lessonInfo strong {
+  color: #ffffff;
+  margin-right: 0.5rem;
+} 

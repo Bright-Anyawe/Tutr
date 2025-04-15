@@ -1,11 +1,13 @@
 import "../styles/header.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { isLoggedIn, userName, logout } = useAuth();
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,6 +21,11 @@ const Header: React.FC = () => {
 
   const handleLogin = () => {
     navigate('/auth');
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
   };
 
   return (

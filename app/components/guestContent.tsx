@@ -24,8 +24,10 @@ const GuestContent: React.FC = () => {
     }
   }, [userName]);
 
-  // If the user is logged in, don't redirect, just show them the content
-  // This allows the home page to function as both a guest and logged-in landing page
+  // IMPORTANT: Remove any redirects to dashboard
+  // if (isLoggedIn) {
+  //   return <Navigate to="/dashboard" replace />;
+  // }
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();

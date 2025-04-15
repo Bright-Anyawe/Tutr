@@ -1,0 +1,42 @@
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.uploadButton {
+  background-color: #2563EB;
+  color: white;
+  border: none;
+}
+
+.uploadButton:hover {
+  background-color: #1D4ED8;
+}
+
+.studioButton {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #4B5563;
+}
+
+.studioButton:hover {
+  background-color: rgba(75, 85, 99, 0.1);
+  border-color: #6B7280;
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.buttonText {
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+} 

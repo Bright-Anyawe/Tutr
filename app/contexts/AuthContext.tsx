@@ -15,7 +15,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState<string | null>(null);
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
 
   const login = (username: string) => {
     setIsLoggedIn(true);
@@ -25,11 +25,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     setIsLoggedIn(false);
     setUserName(null);
-    setIsSidebarExpanded(false);
+    setIsSidebarExpanded(true);
   };
 
   const toggleSidebar = () => {
-    setIsSidebarExpanded(!isSidebarExpanded);
+    setIsSidebarExpanded(prev => !prev);
   };
 
   return (

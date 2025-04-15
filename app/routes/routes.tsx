@@ -1,24 +1,27 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import AppLayout from '../layouts/AppLayout';
-import Login from './login';
+import Auth from './auth';
+import GuestPage from './guestPage';
 
-const routes = [
+const router = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
     children: [
       {
         index: true,
-        element: null,
+        element: <GuestPage />,
+      },
+      {
+        path: 'dashboard',
+        element: <Navigate to="/" replace />,
       },
     ],
   },
   {
-    path: '/login',
-    element: <Login />,
+    path: '/auth',
+    element: <Auth />,
   },
-];
-
-const router = createBrowserRouter(routes);
+]);
 
 export default router; 

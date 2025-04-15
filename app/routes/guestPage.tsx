@@ -1,16 +1,20 @@
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import Badge from "../components/badge";
 import "../styles/mainContent.css";
 
 function GuestPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, userName } = useAuth();
+  const [welcomeMessage, setWelcomeMessage] = useState("Like Uber Eats Meet Tutoring");
 
-  if (isLoggedIn) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  useEffect(() => {
+    if (userName) {
+      setWelcomeMessage(`Welcome ${userName}`);
+    } else {
+      setWelcomeMessage("Like Uber Eats Meet Tutoring");
+    }
+  }, [userName]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +24,7 @@ function GuestPage() {
     <section className="guest-page">
       <div className="content">
         <Badge />
-        <h1 className="title">Like Uber Eats Meet Tutoring</h1>
+        <h1 className="title">{welcomeMessage}</h1>
         
         <form 
           className="search-container" 

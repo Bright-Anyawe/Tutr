@@ -1,6 +1,7 @@
 .sidebarContainer {
   padding: 16px;
   margin-top: 30px;
+  position: relative;
 }
 
 .sidebar {
@@ -9,6 +10,8 @@
   height: calc(100vh - 112px);
   width: 250px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .sidebar.collapsed {
@@ -16,22 +19,22 @@
   background: transparent;
 }
 
-.expanded {
+.sidebar.expanded {
   width: 250px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .sidebarHeader {
   padding: 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 73px;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .sidebar.collapsed .sidebarHeader {
-  padding: 0;
-  position: fixed;
-  left: 81px;
+  padding: 8px;
+  justify-content: center;
 }
 
 .toggleButton {
@@ -86,16 +89,16 @@
   font-size: 14px;
   display: flex;
   align-items: center;
-  gap: 52px;
+  gap: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .createButton:hover {
   background: #0052CC;
 }
 
-.createButtonCollapsed {
+.sidebar.collapsed .createButton {
   padding: 8px;
   justify-content: center;
 }

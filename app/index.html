@@ -25,20 +25,8 @@
         background-color: #080808;
       }
     </style>
-    <script>
-      // Force body margins to zero on load
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.style.margin = '0';
-        document.body.style.padding = '0';
-        
-        // Create a style element and append it to head
-        const style = document.createElement('style');
-        style.textContent = 'body { margin: 0 !important; padding: 0 !important; }';
-        document.head.appendChild(style);
-      });
-    </script>
   </head>
-  <body style="margin: 0 !important; padding: 0 !important; background-color: #080808;">
+  <body style="margin: 0 !important; padding: 0 !important;">
     <div id="root" style="margin: 0 !important; padding: 0 !important;"></div>
     <script type="module" src="/app/entry.client.tsx"></script>
   </body>
