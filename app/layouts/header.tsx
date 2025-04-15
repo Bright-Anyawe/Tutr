@@ -2,6 +2,7 @@ import "../styles/header.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import HeaderActions from '../components/headerActions';
 
 const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,7 +21,11 @@ const Header: React.FC = () => {
   }, []);
 
   const handleLogin = () => {
-    navigate('/auth');
+    navigate('/auth', { state: { isLogin: true } });
+  };
+
+  const handleSignup = () => {
+    navigate('/auth', { state: { isLogin: false } });
   };
 
   const handleLogout = () => {
@@ -36,33 +41,12 @@ const Header: React.FC = () => {
           src="/Icons/Logo.png"
           alt="Company Logo"
         />
-        <nav className={`header-actions ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
-          {(!isMobile || isMenuOpen) && (
-            <>
-              <section className="trial-banner">
-                <p className="trial-text">
-                  <span className="trial-highlight">
-                    You are on free trial.
-                  </span>{" "}
-                  <a href="#upgrade" className="trial-upgrade">
-                    Upgrade
-                  </a>
-                </p>
-              </section>
-              <section className="auth-buttons">
-                <button 
-                  className="login-button"
-                  onClick={handleLogin}
-                >
-                  Log In
-                </button>
-                <button className="signup-button">
-                  Sign Up
-                </button>
-              </section>
-            </>
-          )}
-        </nav>
+        <HeaderActions 
+          isMenuOpen={isMenuOpen}
+          isMobile={isMobile}
+          onLogin={handleLogin}
+          onSignup={handleSignup}
+        />
         {isMobile && (
           <button 
             className={`mobile-menu-button ${isMenuOpen ? 'open' : ''}`}

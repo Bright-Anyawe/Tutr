@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
           </button>
           {isSidebarExpanded && (
             <button className={styles.chatButton}>
-              <MessageSquare size={20} />
+              <img src="/Images/Message icon.png" alt="" />
               <span>New Chat</span>
             </button>
           )}
@@ -46,8 +46,8 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
             {isSidebarExpanded ? (
               <>
                 Create new lesson
-                <Plus size={20} />
-              </>
+                <img src="/Images/plus.png" alt="Create new lesson" />
+                </>
             ) : (
               <Plus size={20} />
             )}

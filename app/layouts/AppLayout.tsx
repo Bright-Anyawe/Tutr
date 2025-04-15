@@ -12,7 +12,7 @@ const AppLayout: React.FC = () => {
     <div className="app-container">
       <Header />
       <div className="app-body">
-        <div className={`sidebar ${isSidebarExpanded ? 'expanded' : ''}`}>
+        <div className={`sidebar ${isSidebarExpanded ? 'expanded' : 'collapsed'}`}>
           <Sidebar />
         </div>
         <main className={`main-area ${isSidebarExpanded ? 'sidebar-expanded' : ''}`}>

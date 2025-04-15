@@ -6,6 +6,7 @@ interface AuthContextType {
   userName: string | null;
   isSidebarExpanded: boolean;
   login: (username: string) => void;
+  loginWithGoogle: () => void;
   logout: () => void;
   toggleSidebar: () => void;
 }
@@ -15,17 +16,23 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState<string | null>(null);
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
 
   const login = (username: string) => {
     setIsLoggedIn(true);
     setUserName(username);
   };
 
+  const loginWithGoogle = () => {
+    // In a real app, this would integrate with Google OAuth
+    setIsLoggedIn(true);
+    setUserName("Google User"); // This would normally come from the Google profile
+  };
+
   const logout = () => {
     setIsLoggedIn(false);
     setUserName(null);
-    setIsSidebarExpanded(true);
+    setIsSidebarExpanded(false);
   };
 
   const toggleSidebar = () => {
@@ -38,6 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       userName, 
       isSidebarExpanded,
       login, 
+      loginWithGoogle,
       logout,
       toggleSidebar 
     }}>
