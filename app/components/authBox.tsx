@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/authBox.module.css';
 
 interface AuthBoxProps {
@@ -16,6 +18,8 @@ const AuthBox: React.FC<AuthBoxProps> = ({
 }) => {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isLogin, setIsLogin] = useState(initialIsLogin);
+  const { loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
   
   // Update internal state when prop changes
   useEffect(() => {
@@ -31,10 +35,18 @@ const AuthBox: React.FC<AuthBoxProps> = ({
     setIsLogin(!isLogin);
   };
 
+  const handleGoogleLogin = () => {
+    loginWithGoogle();
+    navigate('/');
+  };
+
   return (
     <div className={styles.loginBox}>
       <h1 className={styles.title}>{isLogin ? 'Welcome Back' : 'Get Started'}</h1>
-      <button className={`${styles.button} ${styles.googleButton}`}>
+      <button 
+        className={`${styles.button} ${styles.googleButton}`}
+        onClick={handleGoogleLogin}
+      >
         Continue with google
       </button>
       

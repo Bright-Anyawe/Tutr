@@ -1,36 +1,67 @@
 import React from 'react';
-import styles from '../styles/headerActions.module.css';
+import { useAuth } from '../contexts/AuthContext';
+import '../styles/headerActions.css';
 
 interface HeaderActionsProps {
   isMenuOpen: boolean;
   isMobile: boolean;
   onLogin: () => void;
+  onSignup: () => void;
 }
 
-const HeaderActions: React.FC<HeaderActionsProps> = ({ isMenuOpen, isMobile, onLogin }) => {
+const HeaderActions: React.FC<HeaderActionsProps> = ({
+  isMenuOpen,
+  isMobile,
+  onLogin,
+  onSignup
+}) => {
+  const { isLoggedIn, userName } = useAuth();
+
+  const renderAuthenticatedActions = () => (
+    <div className="user-profile-container">
+      <div className="premium-badge">Premium</div>
+      <div className="user-profile">
+        <div className="profile-image-placeholder">
+          {userName?.charAt(0) || 'U'}
+        </div>
+        <span className="dropdown-arrow">▼</span>
+      </div>
+    </div>
+  );
+
+  const renderUnauthenticatedActions = () => (
+    <>
+      <section className="trial-banner">
+        <p className="trial-text">
+          <span className="trial-highlight">
+            You are on free trial.
+          </span>{" "}
+          <a href="#upgrade" className="trial-upgrade">
+            Upgrade
+          </a>
+        </p>
+      </section>
+      <section className="auth-buttons">
+        <button 
+          className="login-button"
+          onClick={onLogin}
+        >
+          Log In
+        </button>
+        <button 
+          className="signup-button"
+          onClick={onSignup}
+        >
+          Sign Up
+        </button>
+      </section>
+    </>
+  );
+
   return (
-    <nav className={`${styles.headerActions} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}>
+    <nav className={`header-actions ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
       {(!isMobile || isMenuOpen) && (
-        <>
-          <section className={styles.trialBanner}>
-            <p className={styles.trialText}>
-              <span className={styles.trialHighlight}>
-                You are on free trial.
-              </span>{" "}
-              <a href="#upgrade" className={styles.trialUpgrade}>
-                Upgrade
-              </a>
-            </p>
-          </section>
-          <section className={styles.authButtons}>
-            <button className={styles.loginButton} onClick={onLogin}>
-              Log In
-            </button>
-            <button className={styles.signupButton}>
-              Sign Up
-            </button>
-          </section>
-        </>
+        isLoggedIn ? renderAuthenticatedActions() : renderUnauthenticatedActions()
       )}
     </nav>
   );
