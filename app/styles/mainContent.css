@@ -242,22 +242,6 @@ header.header {
   font-weight: 500;
 }
 
-.search-button {
-  width: 30px;
-  height: 30px;
-  background: #1C75BD;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  transition: background-color 0.2s ease;
-  flex-shrink: 0;
-}
-
-.search-button:hover {
-  background: #2286d4;
-}
-
 .search-dot {
   width: 4.5px;
   height: 4.5px;
@@ -385,6 +369,17 @@ header.header {
   margin-left: 250px;
 }
 
+/* Studio mode styles */
+.main-area.studio-mode {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.main-area.studio-mode > * {
+  height: 100%;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .content {
@@ -419,41 +414,6 @@ header.header {
   .search-button {
     width: 100%;
     height: 37px;
-  }
-
-  .search-container {
-    max-width: 100%;
-  }
-
-  .search-dot.left {
-    left: calc(50% - 4px);
-  }
-
-  .search-dot.right {
-    left: calc(50% + 1px);
-  }
-
-  .main-content {
-    margin-left: 240px;
-    padding: 16px;
-    padding-top: 84px;
-  }
-
-  .welcome-title {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-
-  .layout-wrapper {
-    padding-top: 60px;
-  }
-
-  .layout-wrapper.sidebar-visible {
-    margin-left: 240px;
-  }
-
-  .main-content {
-    padding: 24px;
   }
 
   .app-body {
