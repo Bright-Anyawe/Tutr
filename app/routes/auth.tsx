@@ -1,17 +1,21 @@
 // src/components/Login/Login.tsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/auth.module.css';
 import AuthBox from '../components/authBox';
 import VerifyEmail from '../components/verifyEmail';
-import Badge from '../components/badge';
+import AuthFooter from '../components/authFooter';
 
 const Auth: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
+  
+  // Get isLogin state from location or default to true (login mode)
+  const isLogin = location.state?.isLogin ?? true;
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -27,9 +31,22 @@ const Auth: React.FC = () => {
     // Here you would typically verify the code with your backend
     console.log('Verification code:', code);
     
-    // Login the user and redirect to the app root page
+    // Login the user
     login(email);
-    navigate('/');
+    
+    // Navigate based on login vs signup
+    if (isLogin) {
+      // For logins, go to home/dashboard
+      navigate('/');
+    } else {
+      // For signups, go to onboarding with email
+      navigate('/onboarding', { 
+        state: { 
+          email: email,
+          fromSignup: true
+        } 
+      });
+    }
   };
 
   const handlePasswordLogin = (password: string) => {
@@ -38,6 +55,8 @@ const Auth: React.FC = () => {
     
     // Login the user and redirect to the app root page
     login(email);
+    
+    // Password login is only for existing users, so always go to home
     navigate('/');
   };
 
@@ -50,12 +69,14 @@ const Auth: React.FC = () => {
           email={email}
           onVerify={handleVerification}
           onPasswordLogin={handlePasswordLogin}
+          isLogin={isLogin}
         />
       ) : (
         <AuthBox 
           email={email} 
           onEmailChange={handleEmailChange} 
-          onEmailSubmit={handleEmailSubmit} 
+          onEmailSubmit={handleEmailSubmit}
+          isLogin={isLogin}
         />
       )}
 
@@ -64,10 +85,7 @@ const Auth: React.FC = () => {
           tutr is a tutor's workspace built with tools that assist making
           students' learning visual.
         </p>
-        <div className={styles.footer}>
-          <Badge />
-          <span className={styles.poweredBy}>Powered by Really AI</span>
-        </div>
+        <AuthFooter />
       </div>
     </div>
   );
