@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import HeaderActions from '../components/headerActions';
+import DashboardHeader from '../components/dashboardHeader';
 
 const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { isLoggedIn, userName, logout } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,12 +42,24 @@ const Header: React.FC = () => {
           src="/Icons/Logo.png"
           alt="Company Logo"
         />
-        <HeaderActions 
-          isMenuOpen={isMenuOpen}
-          isMobile={isMobile}
-          onLogin={handleLogin}
-          onSignup={handleSignup}
-        />
+        
+        {isLoggedIn ? (
+          // Authenticated header for logged-in users
+          <DashboardHeader 
+            isMenuOpen={isMenuOpen}
+            isMobile={isMobile}
+            onLogout={handleLogout}
+          />
+        ) : (
+          // Unauthenticated header for guests
+          <HeaderActions 
+            isMenuOpen={isMenuOpen}
+            isMobile={isMobile}
+            onLogin={handleLogin}
+            onSignup={handleSignup}
+          />
+        )}
+        
         {isMobile && (
           <button 
             className={`mobile-menu-button ${isMenuOpen ? 'open' : ''}`}
