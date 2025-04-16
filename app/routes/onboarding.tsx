@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/onboarding.module.css';
 
 const OnboardingPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { userName } = useAuth();
   
   const totalSteps = 3;
+  const userEmail = location.state?.email || '';
+  
+  useEffect(() => {
+    // If we don't have user data and we're not coming from auth, redirect to auth
+    if (!userName && !userEmail) {
+      navigate('/auth');
+    }
+  }, [userName, userEmail, navigate]);
   
   const handleContinue = () => {
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Redirect to dashboard when onboarding complete
-      navigate('/');
+      // Onboarding complete - navigate to homepage
+      navigate('/', { 
+        state: { 
+          onboardingComplete: true,
+          welcomeUser: true
+        } 
+      });
     }
   };
   
@@ -22,7 +38,7 @@ const OnboardingPage = () => {
       case 0:
         return (
           <>
-            <h1 className={styles.title}>Welcome to Tutr</h1>
+            <h1 className={styles.title}>Welcome to Tutr{userName ? `, ${userName}` : ''}</h1>
             <div className={styles.placeholderArea}></div>
             <p className={styles.description}>
               Create, share, and learn with Tutr's AI-powered education platform. 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useLocation } from 'react-router-dom';
 import Badge from "./badge";
 import "../styles/mainContent.css";
 import { UploadButton, StudioButton } from './common/ActionButtons';
@@ -8,14 +9,24 @@ function GuestContent() {
   const [searchQuery, setSearchQuery] = useState('');
   const { isLoggedIn, userName } = useAuth();
   const [welcomeMessage, setWelcomeMessage] = useState("Like Uber Eats Meet Tutoring");
+  const location = useLocation();
+  
+  // Check if coming from onboarding with welcomeUser flag
+  const showWelcome = location.state?.welcomeUser;
 
   useEffect(() => {
     if (userName) {
-      setWelcomeMessage(`Welcome ${userName}`);
+      if (showWelcome) {
+        // Special welcome for users just completing onboarding
+        setWelcomeMessage(`Welcome  ${userName}!`);
+      } else {
+        // Regular welcome for returning users
+        setWelcomeMessage(`Welcome back, ${userName}`);
+      }
     } else {
       setWelcomeMessage("Like Uber Eats Meet Tutoring");
     }
-  }, [userName]);
+  }, [userName, showWelcome]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
