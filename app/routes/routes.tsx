@@ -1,8 +1,8 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import AppLayout from '../layouts/AppLayout';
 import Auth from './auth';
-import GuestPage from './guestPage';
 import GuestContent from '../components/guestContent';
+import OnboardingPage from './onboarding';
 
 const router = createBrowserRouter([
   {
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <GuestPage />,
+        element: <GuestContent />,
       },
       {
         path: 'dashboard',
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/auth',
     element: <Auth />,
+  },
+  {
+    path: '/onboarding',
+    element: <OnboardingPage />,
   },
 ]);
 
