@@ -1,19 +1,19 @@
 import React from 'react';
-import '../../styles/studio/SearchForm.css';
+import '../../styles/studio/StudioButtons.css';
 
-interface SearchFormProps {
+interface StudioButtonsProps {
   onCreateLesson?: () => void;
   onReset?: () => void;
   onScribble?: () => void;
 }
 
-const StudioButtons: React.FC<SearchFormProps> = ({
+const StudioButtons: React.FC<StudioButtonsProps> = ({
   onCreateLesson,
   onReset,
   onScribble
 }) => {
   return (
-    <div className="search-form-container">
+    <div className="studio-buttons-container">
       <div className="footer-left">
         <button 
           className="footer-button reset-button" 
