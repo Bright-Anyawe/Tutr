@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/lessonForm.module.css';
-import WelcomePopup from './WelcomePopup';
 
 interface LessonFormProps {
   onClose: () => void;
@@ -17,7 +17,7 @@ const LessonForm: React.FC<LessonFormProps> = ({ onClose, onSubmit }) => {
     topic: '',
     student: ''
   });
-  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,13 +27,11 @@ const LessonForm: React.FC<LessonFormProps> = ({ onClose, onSubmit }) => {
       return; // Basic validation
     }
     
-    // Show welcome popup instead of submitting right away
-    setShowWelcomePopup(true);
-  };
-  
-  const handleFinalSubmit = () => {
-    // Now actually submit the form data
+    // Submit form data
     onSubmit(formData);
+    
+    // Navigate to LessonsRequests
+    navigate('/lessons-requests');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,14 +106,6 @@ const LessonForm: React.FC<LessonFormProps> = ({ onClose, onSubmit }) => {
           </form>
         </div>
       </div>
-      
-      {showWelcomePopup && (
-        <WelcomePopup 
-          lessonData={formData} 
-          onClose={() => setShowWelcomePopup(false)}
-          onContinue={handleFinalSubmit}
-        />
-      )}
     </>
   );
 };
