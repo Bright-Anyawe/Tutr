@@ -1,33 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import Badge from "../components/badge";
+import Badge from "./badge";
 import "../styles/mainContent.css";
-import styles from '../styles/guestContent.module.css';
+import { UploadButton, StudioButton } from './common/ActionButtons';
 
-const GuestContent: React.FC = () => {
+function GuestContent() {
   const [searchQuery, setSearchQuery] = useState('');
   const { isLoggedIn, userName } = useAuth();
   const [welcomeMessage, setWelcomeMessage] = useState("Like Uber Eats Meet Tutoring");
 
   useEffect(() => {
-    // For testing purposes, we'll use a mock user
-    const mockUser = {
-      isLoggedIn: true, // Change this to false to test the initial state
-      username: "dara"
-    };
-
-    if (mockUser.isLoggedIn) {
-      setWelcomeMessage(`Welcome ${mockUser.username}`);
+    if (userName) {
+      setWelcomeMessage(`Welcome ${userName}`);
     } else {
       setWelcomeMessage("Like Uber Eats Meet Tutoring");
     }
   }, [userName]);
-
-  // IMPORTANT: Remove any redirects to dashboard
-  // if (isLoggedIn) {
-  //   return <Navigate to="/dashboard" replace />;
-  // }
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,9 +23,9 @@ const GuestContent: React.FC = () => {
 
   return (
     <section className="guest-page">
-      <div className={styles.content}>
+      <div className="content">
         <Badge />
-        <h1 className={styles.title}>{welcomeMessage}</h1>
+        <h1 className="title">{welcomeMessage}</h1>
         
         <form 
           className="search-container" 
@@ -57,34 +45,8 @@ const GuestContent: React.FC = () => {
 
           <div className="search-actions">
             <div className="action-buttons">
-              <button 
-                type="button" 
-                className="upload-button"
-                aria-label="Upload Notes"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/plusIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Upload Notes</span>
-              </button>
-              <button 
-                type="button" 
-                className="studio-button"
-                aria-label="Open Studio"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/videoIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Open Studio</span>
-              </button>
+              <UploadButton />
+              <StudioButton />
             </div>
 
             <button 
@@ -104,6 +66,6 @@ const GuestContent: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 
 export default GuestContent;

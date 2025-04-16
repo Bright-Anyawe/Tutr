@@ -2,7 +2,7 @@ import React from 'react';
 import type { RouteObject, IndexRouteObject } from 'react-router-dom';
 import AppLayout from "./layouts/AppLayout";
 import { ErrorBoundary } from "./root";
-import GuestPage from "./routes/guestPage";
+import GuestPage from "./components/guestContent";
 import Dashboard from "./routes/dashboard";
 import NotFound from "./routes/notFound";
 
