@@ -73,8 +73,14 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
         // Login the user with their email
         login(email);
         
-        // Navigate to the main app page (root path)
-        navigate('/');
+        // Navigate based on whether user is signing up or logging in
+        if (isLogin) {
+          // Send existing users to homepage/dashboard
+          navigate('/');
+        } else {
+          // Send new users to onboarding
+          navigate('/onboarding');
+        }
       }, 1000);
     }, 800);
   };
@@ -128,7 +134,7 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
         {verificationSuccess && (
           <div className={styles.successMessage}>
             <div className={styles.successIcon}>✓</div>
-            <p>Email verified successfully!</p>
+            <p>{isLogin ? 'Login successful!' : 'Account created successfully!'}</p>
           </div>
         )}
       </div>
