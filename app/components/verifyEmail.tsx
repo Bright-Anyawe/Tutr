@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/verifyEmail.module.css';
+import PasswordLogin from './passwordLogin';
 
 interface VerifyEmailProps {
   email: string;
@@ -17,9 +18,9 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
   isLogin = true
 }) => {
   const [code, setCode] = useState(['', '', '', '', '']);
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const [activeInput, setActiveInput] = useState(0);
+  const [verificationSuccess, setVerificationSuccess] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -41,8 +42,8 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
         setActiveInput(index + 1);
       }
 
-      // If all digits are filled, verify and navigate
-      if (newCode.every(digit => digit !== '')) {
+      // If all digits are filled, verify
+      if (newCode.every(digit => digit !== '') && !isVerifying) {
         handleVerification(newCode.join(''));
       }
     }
@@ -57,28 +58,36 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
   };
 
   const handleVerification = (verificationCode: string) => {
-    // Submit verification code
-    onVerify(verificationCode);
+    setIsVerifying(true);
+    
+    // Simulate verification delay and show success state
+    setTimeout(() => {
+      // Mark verification as successful
+      setVerificationSuccess(true);
+      
+      // Wait a moment to show the success state before navigating
+      setTimeout(() => {
+        // Submit verification code
+        onVerify(verificationCode);
+        
+        // Login the user with their email
+        login(email);
+        
+        // Navigate to the main app page (root path)
+        navigate('/');
+      }, 1000);
+    }, 800);
+  };
+
+  const handlePasswordLogin = (password: string) => {
+    // Submit password for login
+    onPasswordLogin(password);
     
     // Login the user with their email
     login(email);
     
     // Navigate to the main app page (root path)
     navigate('/');
-  };
-
-  const handlePasswordSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password) {
-      // Submit password for login
-      onPasswordLogin(password);
-      
-      // Login the user with their email
-      login(email);
-      
-      // Navigate to the main app page (root path)
-      navigate('/');
-    }
   };
 
   return (
@@ -103,36 +112,25 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
               value={digit}
               onChange={e => handleCodeChange(index, e.target.value)}
               onKeyDown={e => handleKeyDown(index, e)}
-              className={`${styles.codeInput} ${index === activeInput ? styles.active : ''}`}
+              className={`
+                ${styles.codeInput} 
+                ${index === activeInput && !verificationSuccess ? styles.active : ''} 
+                ${verificationSuccess ? styles.success : ''}
+              `}
               onFocus={() => setActiveInput(index)}
+              disabled={verificationSuccess || isVerifying}
             />
           ))}
         </div>
 
-        <div className={styles.separator}>or use password</div>
-
-        <form onSubmit={handlePasswordSubmit}>
-          <div className={styles.passwordContainer}>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              placeholder="123456"
-              className={styles.passwordInput}
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className={styles.eyeIcon}
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-            >
-              👁
-            </button>
+        {isLogin && !verificationSuccess && <PasswordLogin onPasswordSubmit={handlePasswordLogin} />}
+        
+        {verificationSuccess && (
+          <div className={styles.successMessage}>
+            <div className={styles.successIcon}>✓</div>
+            <p>Email verified successfully!</p>
           </div>
-          <button type="submit" className={styles.loginButton}>
-            Login
-          </button>
-        </form>
+        )}
       </div>
     </div>
   );

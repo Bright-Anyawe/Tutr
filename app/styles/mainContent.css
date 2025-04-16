@@ -54,6 +54,15 @@ header.header {
 
 .sidebar {
   grid-area: sidebar;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.expanded {
+  width: 250px;
 }
 
 .main-area {
@@ -61,6 +70,7 @@ header.header {
   padding: 20px;
   transition: margin-left 0.3s ease;
   overflow-y: auto;
+  margin-left: 0;
 }
 
 .main-area.sidebar-expanded {
