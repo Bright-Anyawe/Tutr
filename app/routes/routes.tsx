@@ -1,11 +1,13 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import AppLayout from '../layouts/AppLayout';
-import Auth from './Auth';
-import GuestContent from '../components/GuestContent';
+import Auth from './auth';
+import GuestContent from '../components/guestContent';
 import OnboardingPage from './Onboarding';
 import StudioPage from './Studio';
 // import StudioModePage from './studio-mode';
 import LessonsRequests from '../components/LessonsRequests';
+import UserProfileLayout from '../components/userProfile/UserProfile-Layout';
+import LessonLibrary from '../components/userProfile/LessonLibrary';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,18 @@ const router = createBrowserRouter([
         path: 'lessons-requests',
         element: <LessonsRequests />,
       },
+     
     ],
+
+  },
+
+  {
+    path: 'my-lessons',
+    element: (
+      <UserProfileLayout currentPage="My Lessons">
+        <LessonLibrary />
+      </UserProfileLayout>
+    ),
   },
   {
     path: '/auth',
