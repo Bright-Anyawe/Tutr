@@ -1,16 +1,32 @@
-import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import Badge from "../components/badge";
+import { useLocation } from 'react-router-dom';
+import Badge from "./badge";
 import "../styles/mainContent.css";
+import { UploadButton, StudioButton } from './common/ActionButtons';
 
-function GuestPage() {
+function GuestContent() {
   const [searchQuery, setSearchQuery] = useState('');
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, userName } = useAuth();
+  const [welcomeMessage, setWelcomeMessage] = useState("Like Uber Eats Meet Tutoring");
+  const location = useLocation();
+  
+  // Check if coming from onboarding with welcomeUser flag
+  const showWelcome = location.state?.welcomeUser;
 
-  if (isLoggedIn) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  useEffect(() => {
+    if (userName) {
+      if (showWelcome) {
+        // Special welcome for users just completing onboarding
+        setWelcomeMessage(`Welcome  ${userName}!`);
+      } else {
+        // Regular welcome for returning users
+        setWelcomeMessage(`Welcome back, ${userName}`);
+      }
+    } else {
+      setWelcomeMessage("Like Uber Eats Meet Tutoring");
+    }
+  }, [userName, showWelcome]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +36,7 @@ function GuestPage() {
     <section className="guest-page">
       <div className="content">
         <Badge />
-        <h1 className="title">Like Uber Eats Meet Tutoring</h1>
+        <h1 className="title">{welcomeMessage}</h1>
         
         <form 
           className="search-container" 
@@ -40,34 +56,8 @@ function GuestPage() {
 
           <div className="search-actions">
             <div className="action-buttons">
-              <button 
-                type="button" 
-                className="upload-button"
-                aria-label="Upload Notes"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/plusIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Upload Notes</span>
-              </button>
-              <button 
-                type="button" 
-                className="studio-button"
-                aria-label="Open Studio"
-              >
-                <span className="button-icon">
-                  <img 
-                    src="/Icons/videoIcon.png" 
-                    alt="" 
-                    aria-hidden="true"
-                  />
-                </span>
-                <span className="button-text">Open Studio</span>
-              </button>
+              <UploadButton />
+              <StudioButton />
             </div>
 
             <button 
@@ -89,4 +79,4 @@ function GuestPage() {
   );
 }
 
-export default GuestPage;
+export default GuestContent;

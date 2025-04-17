@@ -1,0 +1,117 @@
+.loginBox {
+  background: #1A1A1A;
+  border-radius: 8px;
+  padding: 32px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.googleButton {
+  background: #282828;
+  color: #FFFFFF;
+}
+
+.googleButton:hover {
+  background: #4d4c4c;
+}
+
+.emailButton {
+  background: #1D4ED8;
+  color: #FFFFFF;
+}
+
+.emailButton:hover {
+  background: #1E40AF;
+}
+
+.emailButton:disabled {
+  background: #1A365D;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.separator {
+  text-align: center;
+  color: #FFFFFF;
+  position: relative;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #333333;
+}
+
+.separator::before {
+  left: 0;
+}
+
+.separator::after {
+  right: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #2A2A2A;
+  color: #FFFFFF;
+  font-size: 16px;
+  height: 48px;
+}
+
+.input::placeholder {
+  color: #666666;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.4);
+}
+
+.switchButton {
+  background: none;
+  border: none;
+  color: #666666;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.switchButton:hover {
+  color: #FFFFFF;
+} 

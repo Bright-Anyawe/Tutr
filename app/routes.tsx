@@ -2,9 +2,10 @@ import React from 'react';
 import type { RouteObject, IndexRouteObject } from 'react-router-dom';
 import AppLayout from "./layouts/AppLayout";
 import { ErrorBoundary } from "./root";
-import GuestPage from "./routes/guestPage";
-import Dashboard from "./routes/dashboard";
+import GuestPage from "./components/guestContent";
 import NotFound from "./routes/notFound";
+import StudioPage from "./routes/studio";
+import StudioModePage from "./routes/studio-mode";
 
 export type ExtendedRouteObject = RouteObject & {
   file?: string;
@@ -23,10 +24,16 @@ const routes: ExtendedRouteObject[] = [
         element: <GuestPage />,
         file: "routes/guestPage.tsx"
       },
+    
       {
-        path: "dashboard",
-        element: <Dashboard />,
-        file: "routes/dashboard.tsx"
+        path: "studio",
+        element: <StudioPage />,
+        file: "routes/studio.tsx"
+      },
+      {
+        path: "studio-mode",
+        element: <StudioModePage />,
+        file: "routes/studio-mode.tsx"
       }
     ]
   },

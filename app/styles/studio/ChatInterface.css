@@ -1,0 +1,237 @@
+.chat-interface {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #121212;
+  color: #FFFFFF;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #121212;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.chat-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.chat-control-button {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.chat-control-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #000000;
+  
+
+  /* Hide scrollbar for IE, Edge */
+  -ms-overflow-style: none;  
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;  
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chat-messages::-webkit-scrollbar {
+  display: none;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  gap: 8px;
+}
+
+.ai-message {
+  align-self: flex-start;
+}
+
+.user-message {
+  align-self: flex-end;
+}
+
+.message-content {
+  background-color: #333333;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.user-message .message-content {
+  background-color: #1F2937;
+  color: white;
+}
+
+.message-content p {
+  margin: 0 0 8px;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.bullet-point {
+  padding-left: 16px;
+  position: relative;
+  margin: 4px 0;
+}
+
+.bullet-point::before {
+  content: '•';
+  position: absolute;
+  left: 4px;
+}
+
+.message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.action-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.message-reactions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.message:hover .message-reactions {
+  opacity: 1;
+}
+
+.reaction-button {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reaction-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Chat Input */
+.chat-input-container {
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #121212;
+}
+
+.chat-input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.chat-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-action-button {
+  background: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.input-action-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.upload-button {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.send-button {
+  background-color: #3B82F6;
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: #2563EB;
+} 

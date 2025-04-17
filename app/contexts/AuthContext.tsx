@@ -5,7 +5,8 @@ interface AuthContextType {
   isLoggedIn: boolean;
   userName: string | null;
   isSidebarExpanded: boolean;
-  login: (username: string) => void;
+  login: (email: string) => void;
+  loginWithGoogle: () => void;
   logout: () => void;
   toggleSidebar: () => void;
 }
@@ -17,9 +18,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [userName, setUserName] = useState<string | null>(null);
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
 
-  const login = (username: string) => {
+  const login = (email: string) => {
     setIsLoggedIn(true);
-    setUserName(username);
+    
+    // Extract username from email (part before @)
+    const username = email.split('@')[0];
+    
+    // Capitalize first letter of username
+    const formattedUsername = username.charAt(0).toUpperCase() + username.slice(1);
+    
+    setUserName(formattedUsername);
+  };
+
+  const loginWithGoogle = () => {
+    // In a real app, this would integrate with Google OAuth
+    setIsLoggedIn(true);
+    setUserName("Google User"); // This would normally come from the Google profile
   };
 
   const logout = () => {
@@ -29,7 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const toggleSidebar = () => {
-    setIsSidebarExpanded(!isSidebarExpanded);
+    setIsSidebarExpanded(prev => !prev);
   };
 
   return (
@@ -38,6 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       userName, 
       isSidebarExpanded,
       login, 
+      loginWithGoogle,
       logout,
       toggleSidebar 
     }}>
