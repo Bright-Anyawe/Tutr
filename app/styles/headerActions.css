@@ -218,4 +218,47 @@
 
 .profile-dropdown-item:hover {
   background-color: #282828;
+}
+
+/* Add styles for the premium profile container */
+.premium-profile-container {
+  display: flex;
+  align-items: center;
+  background-color: #111;
+  border-radius: 20px;
+  padding: 3px 10px 3px 15px;
+  gap: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.premium-label {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.user-avatar-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.profile-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropdown-arrow {
+  color: white;
+  font-size: 10px;
+}
+
+/* Existing styles for authenticated actions */
+.authenticated-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 } 

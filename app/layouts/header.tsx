@@ -11,6 +11,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
   const [isNewSignup, setIsNewSignup] = useState(false);
+  const [userLoginType, setUserLoginType] = useState<'login' | 'signup' | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,17 +23,28 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Update userLoginType when login status changes
+  useEffect(() => {
+    if (isLoggedIn && userLoginType !== 'signup') {
+      setUserLoginType('login');
+    } else if (!isLoggedIn) {
+      setUserLoginType(null);
+    }
+  }, [isLoggedIn]);
+
   const handleLogin = () => {
     navigate('/auth', { state: { isLogin: true } });
   };
 
   const handleSignup = () => {
     navigate('/auth', { state: { isLogin: false } });
-    setIsNewSignup(true); // Mark as new signup
+    setUserLoginType('signup');
+    setIsNewSignup(true); // Keep for backwards compatibility
   };
 
   const handleLogout = () => {
     logout();
+    setUserLoginType(null);
     setIsNewSignup(false); // Reset signup state
     navigate('/');
   };
@@ -48,20 +60,29 @@ const Header: React.FC = () => {
           style={{ cursor: 'pointer' }}
         />
         
-        {isLoggedIn || isNewSignup ? (
-          // Authenticated header for logged-in users or new signups
-          <DashboardHeader 
-            isMenuOpen={isMenuOpen}
-            isMobile={isMobile}
-            onLogout={handleLogout}
-          />
-        ) : (
+        {!userLoginType ? (
           // Unauthenticated header for guests
           <HeaderActions 
             isMenuOpen={isMenuOpen}
             isMobile={isMobile}
             onLogin={handleLogin}
             onSignup={handleSignup}
+          />
+        ) : userLoginType === 'login' ? (
+          // Authenticated header for logged-in users
+          <DashboardHeader 
+            isMenuOpen={isMenuOpen}
+            isMobile={isMobile}
+            onLogout={handleLogout}
+          />
+        ) : (
+          // Authenticated actions for new signups
+          <HeaderActions 
+            isMenuOpen={isMenuOpen}
+            isMobile={isMobile}
+            onLogin={handleLogin}
+            onSignup={handleSignup}
+            forceAuthenticatedView={true}
           />
         )}
         
