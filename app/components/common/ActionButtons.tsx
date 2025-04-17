@@ -36,7 +36,7 @@ export const StudioButton: React.FC<ActionButtonProps> = ({ className }) => {
     
     // Instead of managing modal state locally, we redirect to a "virtual path"
     // which will be intercepted to show the studio content while keeping the header
-    navigate('/studio-mode', { 
+    navigate('/studio', { 
       state: { 
         isStudioMode: true,
         returnPath: window.location.pathname
