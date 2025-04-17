@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @theme {
   --font-sans: "Neue Haas Grotesk Display Pro", sans-serif;
@@ -16,7 +17,9 @@ body {
   font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0 !important;
   padding: 0 !important;
   width: 100%;
