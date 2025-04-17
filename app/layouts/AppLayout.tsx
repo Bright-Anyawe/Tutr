@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import Header from './header';
-import Sidebar from './sideBar';
+import Header from './Header';
+import Sidebar from './SideBar';
 import '../styles/mainContent.css';
 
 const AppLayout: React.FC = () => {

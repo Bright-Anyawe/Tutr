@@ -55,6 +55,7 @@ header.header {
 .sidebar {
   grid-area: sidebar;
   transition: all 0.3s ease;
+  margin-left: 44px;
 }
 
 .sidebar.collapsed {

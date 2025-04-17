@@ -2,8 +2,10 @@ import "../styles/header.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import HeaderActions from '../components/headerActions';
-import DashboardHeader from '../components/dashboardHeader';
+import HeaderActions from '../components/HeaderActions';
+import DashboardHeader from '../components/DashboardHeader';
+import AuthenticatedActions from '../components/AuthenticatedActions';
+import UnauthenticatedActions from '../components/UnauthenticatedActions';
 
 const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -31,6 +33,14 @@ const Header: React.FC = () => {
       setUserLoginType(null);
     }
   }, [isLoggedIn]);
+
+  useEffect(() => {
+    const storedLoginType = localStorage.getItem('userLoginType');
+    if (storedLoginType === 'signup' || storedLoginType === 'login') {
+      localStorage.removeItem('userLoginType');
+      setUserLoginType(null);
+    }
+  }, []);
 
   const handleLogin = () => {
     navigate('/auth', { state: { isLogin: true } });
@@ -62,9 +72,7 @@ const Header: React.FC = () => {
         
         {!userLoginType ? (
           // Unauthenticated header for guests
-          <HeaderActions 
-            isMenuOpen={isMenuOpen}
-            isMobile={isMobile}
+          <UnauthenticatedActions 
             onLogin={handleLogin}
             onSignup={handleSignup}
           />
@@ -77,13 +85,7 @@ const Header: React.FC = () => {
           />
         ) : (
           // Authenticated actions for new signups
-          <HeaderActions 
-            isMenuOpen={isMenuOpen}
-            isMobile={isMobile}
-            onLogin={handleLogin}
-            onSignup={handleSignup}
-            forceAuthenticatedView={true}
-          />
+          <AuthenticatedActions userName="New User" />
         )}
         
         {isMobile && (

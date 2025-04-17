@@ -37,6 +37,11 @@ const AuthBox: React.FC<AuthBoxProps> = ({
 
   const handleGoogleLogin = () => {
     loginWithGoogle();
+    if (isLogin) {
+      localStorage.setItem('userLoginType', 'login');
+    } else {
+      localStorage.setItem('userLoginType', 'signup');
+    }
     navigate('/');
   };
 

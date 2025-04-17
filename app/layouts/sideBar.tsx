@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/sideBar.module.css';
 import { MessageSquare, Plus, PanelLeft, PanelRight } from "lucide-react"
-import LessonForm from '../components/lessonForm';
+import LessonForm from '../components/LessonForm';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 

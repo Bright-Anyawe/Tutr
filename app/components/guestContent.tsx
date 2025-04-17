@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useLocation } from 'react-router-dom';
-import Badge from "./badge";
+import Badge from "./Badge";
 import "../styles/mainContent.css";
 import { UploadButton, StudioButton } from './common/ActionButtons';
 

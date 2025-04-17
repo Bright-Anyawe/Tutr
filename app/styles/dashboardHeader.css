@@ -14,7 +14,7 @@
   font-size: 14px;
   font-weight: 500;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -31,7 +31,7 @@
   font-size: 14px;
   font-weight: 500;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -49,7 +49,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -84,9 +84,9 @@
 .user-profile {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   cursor: pointer;
-  padding: 4px 8px 4px 4px;
+  padding: 4px 10px 4px 4px;
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.1);
   position: relative;
@@ -94,19 +94,19 @@
 }
 
 .user-profile:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .profile-image {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .profile-image-placeholder {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background-color: #333;
   display: flex;
@@ -117,10 +117,19 @@
   font-size: 16px;
 }
 
+.arrow-icon {
+  vertical-align: middle;
+  margin: 0;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+}
+
 .dropdown-arrow {
   color: white;
   font-size: 10px;
-  margin-right: 4px;
+  margin-left: 4px;
 }
 
 /* Dropdown menu styles */
@@ -215,6 +224,9 @@
     justify-content: center;
   }
   
+  svg{
+    margin: 0;
+  }
   .user-profile {
     width: 100%;
     justify-content: space-between;

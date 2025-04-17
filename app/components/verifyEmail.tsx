@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/verifyEmail.module.css';
-import PasswordLogin from './passwordLogin';
+import PasswordLogin from './PasswordLogin';
 
 interface VerifyEmailProps {
   email: string;

@@ -4,7 +4,7 @@ import ChatInterface from '../components/studio/ChatInterface';
 import StudioView from '../components/studio/StudioView';
 import { CourseProvider } from '../components/CourseContext';
 import '../styles/layouts/StudioPageLayout.css';
-import Header from '~/layouts/header';
+import Header from '~/layouts/Header';
 
 const StudioPageLayout: React.FC = () => {
   const [showChat, setShowChat] = useState(true);

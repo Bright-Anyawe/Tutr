@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/auth.module.css';
-import AuthBox from '../components/authBox';
-import VerifyEmail from '../components/verifyEmail';
-import AuthFooter from '../components/authFooter';
+import AuthBox from '../components/AuthBox';
+import VerifyEmail from '../components/VerifyEmail';
+import AuthFooter from '../components/AuthFooter';
 
 const Auth: React.FC = () => {
   const [email, setEmail] = useState('');

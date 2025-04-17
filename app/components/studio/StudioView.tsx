@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../../styles/studio/StudioView.css';
 import PieChart from './PieChart';
-import StudioButtons from './StudioButtons';
 import ChatInterface from './ChatInterface';
 import StudioHeader from './StudioHeader';
 import StudioFooterControls from './StudioFooterControls';

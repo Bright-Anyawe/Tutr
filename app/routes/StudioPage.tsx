@@ -4,7 +4,7 @@ import StudioView from '../components/studio/StudioView';
 import ChatInterface from '../components/studio/ChatInterface';
 import CourseHeader from '../components/CourseHeader';
 import { CourseProvider } from '../components/CourseContext';
-import Header from '../layouts/header';
+import Header from '../layouts/Header';
 import '../styles/StudioPage.css';
 
 // const Header: React.FC = () => (

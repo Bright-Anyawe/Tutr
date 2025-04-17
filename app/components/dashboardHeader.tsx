@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import '../styles/dashboardHeader.css';
+import Menu from './Menu/Menu';
 
 interface DashboardHeaderProps {
   isMenuOpen: boolean;
@@ -15,9 +17,15 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 }) => {
   const { userName } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+    console.log("Toggle dropdown:", !showDropdown); // Log for debugging
+  };
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
   };
 
   return (
@@ -41,15 +49,12 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             <span className="notification-badge">3</span>
           </div>
           
-          <div className="user-profile" onClick={toggleDropdown}>
-          <span className="dropdown-arrow">▼</span>
-
+          <div className="user-profile" style={{ position: 'relative' }} onClick={toggleMenu}>
             <img 
-              src="/Images/profile-avatar.png" 
+              src="/Images/avater.png" 
               alt="User profile" 
               className="profile-image"
               onError={(e) => {
-                // If image fails to load, show placeholder
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
                 const parent = target.parentElement;
@@ -61,29 +66,17 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                 }
               }}
             />
-            
-            {showDropdown && (
-              <div className="profile-dropdown">
-                <div className="profile-dropdown-header">
-                  <span className="profile-name">{userName}</span>
-                  <span className="profile-email">user@example.com</span>
-                </div>
-                <div className="profile-dropdown-divider"></div>
-                <ul className="profile-dropdown-menu">
-                  <li className="profile-dropdown-item">Profile</li>
-                  <li className="profile-dropdown-item">Settings</li>
-                  <li className="profile-dropdown-item">Help Center</li>
-                  <li className="profile-dropdown-item logout" onClick={onLogout}>
-                    Logout
-                  </li>
-                </ul>
-              </div>
+            {showMenu ? (
+              <ChevronUp className="arrow-icon" size={25} color="white" />
+            ) : (
+              <ChevronDown className="arrow-icon" size={25} color="white" />
             )}
           </div>
+          <Menu isOpen={showMenu} onClose={() => setShowMenu(false)} />
         </>
       )}
     </div>
   );
 };
 
-export default DashboardHeader; 
+export default DashboardHeader;

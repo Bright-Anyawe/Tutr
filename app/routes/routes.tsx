@@ -1,9 +1,9 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import AppLayout from '../layouts/AppLayout';
-import Auth from './auth';
-import GuestContent from '../components/guestContent';
-import OnboardingPage from './onboarding';
-import StudioPage from './studio';
+import Auth from './Auth';
+import GuestContent from '../components/GuestContent';
+import OnboardingPage from './Onboarding';
+import StudioPage from './Studio';
 // import StudioModePage from './studio-mode';
 import LessonsRequests from '../components/LessonsRequests';
 
