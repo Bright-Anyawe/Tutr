@@ -33,7 +33,7 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
     <div className="menu-container" ref={menuRef}>
       <ul className="menu-list">
         <li className="menu-item">
-          <Link to="/lessons">My lessons</Link>
+          <Link to="/my-lessons">My lessons</Link>
         </li>
         <li className="menu-item">
           <Link to="/profile">Profile</Link>

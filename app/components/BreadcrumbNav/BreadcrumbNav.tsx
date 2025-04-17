@@ -33,7 +33,7 @@ const BreadcrumbNav: React.FC<BreadcrumbNavProps> = ({ customPath }) => {
               </li>
               {index < customPath.length - 1 && (
                 <li className="breadcrumb-separator">
-                  <span>{'>'}</span>
+                  <span><img src="/Images/arrow-right.png" alt="" /> </span>
                 </li>
               )}
             </React.Fragment>
