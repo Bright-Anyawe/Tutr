@@ -3,6 +3,9 @@ import AppLayout from '../layouts/AppLayout';
 import Auth from './auth';
 import GuestContent from '../components/guestContent';
 import OnboardingPage from './onboarding';
+import StudioPage from './studio';
+// import StudioModePage from './studio-mode';
+import LessonsRequests from '../components/LessonsRequests';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,15 @@ const router = createBrowserRouter([
         path: 'dashboard',
         element: <Navigate to="/" replace />,
       },
+     
+      // {
+      //   path: 'studio-mode',
+      //   element: <StudioModePage />,
+      // },
+      {
+        path: 'lessons-requests',
+        element: <LessonsRequests />,
+      },
     ],
   },
   {
@@ -26,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: '/onboarding',
     element: <OnboardingPage />,
+  },
+  {
+    path: 'studio',
+    element: <StudioPage />,
   },
 ]);
 

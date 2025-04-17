@@ -2,8 +2,8 @@
   background-color: #111111;
   color: white;
   width: 100%;
-  padding: 14px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .course-container {

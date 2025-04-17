@@ -10,6 +10,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
+  const [isNewSignup, setIsNewSignup] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,10 +28,12 @@ const Header: React.FC = () => {
 
   const handleSignup = () => {
     navigate('/auth', { state: { isLogin: false } });
+    setIsNewSignup(true); // Mark as new signup
   };
 
   const handleLogout = () => {
     logout();
+    setIsNewSignup(false); // Reset signup state
     navigate('/');
   };
 
@@ -41,10 +44,12 @@ const Header: React.FC = () => {
           className="logo"
           src="/Icons/Logo.png"
           alt="Company Logo"
+          onClick={() => navigate('/')}
+          style={{ cursor: 'pointer' }}
         />
         
-        {isLoggedIn ? (
-          // Authenticated header for logged-in users
+        {isLoggedIn || isNewSignup ? (
+          // Authenticated header for logged-in users or new signups
           <DashboardHeader 
             isMenuOpen={isMenuOpen}
             isMobile={isMobile}

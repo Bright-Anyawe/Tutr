@@ -23,7 +23,6 @@ const StudioHeader: React.FC<StudioHeaderProps> = ({
           onClick={onExpandClick}
           aria-label="Expand"
         >
-          {/* SVG for Expand Icon */}
            <img src="/Images/expandIcon.png" alt="Expand image" />
         </button>
         <button
@@ -31,7 +30,6 @@ const StudioHeader: React.FC<StudioHeaderProps> = ({
           onClick={onCloseClick}
           aria-label="Close"
         >
-          {/* SVG for Close Icon */}
          <img src="/Images/closeIcon.png" alt="Close image" />
         </button>
       </div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import StudioView from '../components/studio/StudioView';
+import StudioPageLayout from '../layouts/StudioPageLayout';
 
 const StudioPage: React.FC = () => {
-  return <StudioView />;
+  return <StudioPageLayout />;
 };
 
 export default StudioPage; 

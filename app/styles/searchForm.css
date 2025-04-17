@@ -3,6 +3,15 @@
     max-width: 100%;
   }
 
+  .search-form-container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; */
+    padding: 14px;
+    background-color: black;
+  }
+
   .search-dot.left {
     left: calc(50% - 4px);
   }
