@@ -2,8 +2,7 @@ import "../styles/header.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import HeaderActions from '../components/HeaderActions';
-import DashboardHeader from '../components/DashboardHeader';
+import DashboardHeader from '../components/dashboardHeader'; // Corrected casing
 import AuthenticatedActions from '../components/AuthenticatedActions';
 import UnauthenticatedActions from '../components/UnauthenticatedActions';
 

@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../../styles/studio/ChatInterface.css';
 import SearchForm from '../common/searchForm';
+import MessageReact from './messageReact';
+import CopyEdit from './Copy-Edit';
 
 interface Message {
   type: 'ai' | 'user';
@@ -160,19 +162,11 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
             )}
 
             {message.type === 'ai' && (
-              <div className="message-reactions">
-                <button className="reaction-button">[Copy]</button>
-                <button className="reaction-button">[👍]</button>
-                <button className="reaction-button">[👎]</button>
-                <button className="reaction-button">[🔊]</button>
-              </div>
+             <MessageReact /> 
             )}
             
             {message.type === 'user' && message.content.includes('Sort out the rest') && (
-              <div className="message-reactions user-reactions">
-                <button className="reaction-button">[Edit]</button>
-                <button className="reaction-button">[Regenerate]</button>
-              </div>
+              <CopyEdit />
             )}
           </div>
         ))}

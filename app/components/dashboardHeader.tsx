@@ -63,7 +63,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                   placeholder.className = 'profile-image-placeholder';
                   placeholder.innerText = userName?.charAt(0).toUpperCase() || 'U';
                   parent.appendChild(placeholder);
-                }
+                } 
               }}
             />
             {showMenu ? (
