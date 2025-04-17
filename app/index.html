@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" style="margin: 0 !important; padding: 0 !important; font-family: 'Neue Haas Grotesk Display Pro', sans-serif;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutr App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+      @font-face {
+        font-family: "Neue Haas Grotesk Display Pro";
+        src: url("/fonts/NeueHaasDisplay-Roman.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      @font-face {
+        font-family: "Neue Haas Grotesk Display Pro";
+        src: url("/fonts/NeueHaasDisplay-Medium.woff2") format("woff2");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      html, body, #root {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+      }
+      
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+      }
+      
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background-color: #080808;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+      }
+    </style>
+  </head>
+  <body style="margin: 0 !important; padding: 0 !important; font-family: 'Neue Haas Grotesk Display Pro', sans-serif;">
+    <div id="root" style="margin: 0 !important; padding: 0 !important; font-family: 'Neue Haas Grotesk Display Pro', sans-serif;"></div>
+    <script type="module" src="/app/entry.client.tsx"></script>
+  </body>
+</html> 

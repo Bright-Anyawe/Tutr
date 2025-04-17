@@ -1,0 +1,234 @@
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 12px;
+}
+
+/* Connect to Collabor8 button */
+.connect-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.connect-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Pro button */
+.pro-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pro-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Notification button */
+.notification-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.notification-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.notification-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #FF0000;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* User profile */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px 10px 4px 4px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.user-profile:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-image-placeholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.arrow-icon {
+  vertical-align: middle;
+  margin: 0;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-arrow {
+  color: white;
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+/* Dropdown menu styles */
+.profile-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #1A1A1A;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 220px;
+  overflow: hidden;
+  z-index: 200;
+}
+
+.profile-dropdown-header {
+  padding: 12px 16px;
+  background-color: #282828;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-name {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-email {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  background-color: #333;
+  margin: 0;
+}
+
+.profile-dropdown-menu {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.profile-dropdown-item {
+  padding: 10px 16px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.profile-dropdown-item:hover {
+  background-color: #282828;
+}
+
+.profile-dropdown-item.logout {
+  color: #EF4444;
+}
+
+.profile-dropdown-item.logout:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .dashboard-header {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: #080808;
+    padding: 16px;
+    gap: 16px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+  
+  .dashboard-header.mobile-menu-open {
+    display: flex;
+  }
+  
+  .connect-button,
+  .pro-button,
+  .notification-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  svg{
+    margin: 0;
+  }
+  .user-profile {
+    width: 100%;
+    justify-content: space-between;
+  }
+} 
