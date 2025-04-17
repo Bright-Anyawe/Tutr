@@ -67,9 +67,11 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
               }}
             />
             {showMenu ? (
-              <ChevronUp className="arrow-icon" size={25} color="white" />
+              <img src="/Images/arrow-up.png" alt="" />
+              // <ChevronUp className="arrow-icon" size={25} color="white" />
             ) : (
-              <ChevronDown className="arrow-icon" size={25} color="white" />
+              <img src="/Images/arrow-down.png" alt="" />
+              // <ChevronDown className="arrow-icon" size={25} color="white" />
             )}
           </div>
           <Menu isOpen={showMenu} onClose={() => setShowMenu(false)} />
