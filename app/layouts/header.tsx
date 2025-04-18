@@ -2,10 +2,10 @@ import "../styles/header.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import HeaderActions from '../components/headerActions'; // Restored import with corrected casing
-import DashboardHeader from '../components/dashboardHeader'; // Corrected casing
-import AuthenticatedActions from '../components/AuthenticatedActions';
-import UnauthenticatedActions from '../components/UnauthenticatedActions';
+import HeaderActions from '../components/Headers/headerActions'; // Restored import with corrected casing
+import DashboardHeader from '../components/Headers/dashboardHeader'; // Corrected casing
+import AuthenticatedActions from '../components/Headers/AuthenticatedActions';
+import UnauthenticatedActions from '../components/Headers/UnauthenticatedActions';
 
 const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
