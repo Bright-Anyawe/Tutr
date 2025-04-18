@@ -7,7 +7,7 @@ import StudioPage from './Studio';
 // import StudioModePage from './studio-mode';
 import LessonsRequests from '../components/LessonsRequests';
 import UserProfileLayout from '../components/userProfile/UserProfile-Layout';
-import LessonLibrary from '../components/userProfile/LessonLibrary/LessonLibrary';
+import LessonLibraryContainer from '../components/userProfile/LessonLibrary/LessonLibrary';
 import ProfileSettings from '../components/userProfile/Profile/AccountSettings';
 import Analytics from '../components/userProfile/Analytics/Analytics';
 import Settings from '../components/userProfile/Settings/Settings';
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     path: 'my-lessons',
     element: (
       <UserProfileLayout currentPage="My Lessons">
-        <LessonLibrary />
+        <LessonLibraryContainer />
       </UserProfileLayout>
     ),
   },
