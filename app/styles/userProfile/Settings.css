@@ -4,9 +4,31 @@
     background-color: #1a1a1a; /* Slightly different grey from image */
     border-radius: 8px;
     padding: 10px 0; /* Reduced padding */
+    align-self: start; /* Prevent stretching if grid row is tall */
   }
   
-  /* Reusing .sidebar-item styles defined earlier for consistency */
+  /* Reusing .sidebar-item styles defined earlier for consistency (Ensure they are in a global/shared CSS or UserProfileLayout.css) */
+  /* If .sidebar-item is only used here, define it here */
+  .sidebar-item {
+    padding: 12px 20px; /* Padding for each item */
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    color: #fff;
+  }
+  
+  .sidebar-item:hover {
+    opacity: 1;
+  }
+  
+  .sidebar-item.active {
+    opacity: 1;
+    font-weight: 500;
+    background-color: #2a2a2a; /* Highlight color for active item (match input bg) */
+    border-radius: 4px; /* Slight rounding for active item */
+    margin: 0 10px; /* Margin to inset active highlight */
+    padding: 12px 10px; /* Adjust padding for inset look */
+  }
   
   /* Content panel specific to the settings section */
   .settings-content-panel {
@@ -112,4 +134,100 @@
   .settings-name-button.cancel:hover {
     background-color: #666;
   }
+  
+  
+  /* --- Security Section Styles --- */
+  
+  .security-settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between email and password sections */
+  }
+  
+  .setting-section {
+    /* General structure for email/password */
+  }
+  
+  .setting-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  .setting-controls {
+    /* Container for display or edit controls */
+  }
+  
+  .display-controls,
+  .edit-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .edit-controls.vertical {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .setting-value {
+    font-size: 14px;
+    color: #ccc;
+    min-width: 150px; /* Align with name display */
+    display: inline-block; /* Ensure it takes space */
+  }
+  
+  .setting-input {
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid #444;
+    min-width: 250px; /* Make inputs wider */
+  }
+  
+  .setting-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .setting-button:hover {
+    background-color: #444;
+  }
+  
+  .setting-button.change {
+    /* Specific styles for change button if needed */
+  }
+  
+  .setting-button.save {
+    background-color: #4CAF50;
+  }
+  
+  .setting-button.save:hover {
+    background-color: #45a049;
+  }
+  
+  .setting-button.cancel {
+    background-color: #555;
+  }
+  
+  .setting-button.cancel:hover {
+    background-color: #666;
+  }
+  
+  .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+  }
+    
   
