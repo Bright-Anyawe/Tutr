@@ -12,7 +12,8 @@ const UnauthenticatedActions: React.FC<UnauthenticatedActionsProps> = ({
 }) => {
   return (
     <>
-      <section className="trial-banner">
+     <section className="unauthenticated-actions">
+     <section className="trial-banner">
         <p className="trial-text">
           <span className="trial-highlight">
             You are on free trial.
@@ -36,6 +37,7 @@ const UnauthenticatedActions: React.FC<UnauthenticatedActionsProps> = ({
           Sign Up
         </button>
       </section>
+     </section>
     </>
   );
 };

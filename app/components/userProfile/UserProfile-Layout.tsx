@@ -2,7 +2,6 @@ import React from 'react';
 import type { ReactNode } from 'react';
 import BreadcrumbNav from '../BreadcrumbNav/BreadcrumbNav';
 import Header from '~/layouts/Header';
-import CourseHeader from '~/components/CourseHeader';
 import '../../styles/userProfile/UserProfileLayout.css';
 
 interface UserProfileLayoutProps {
