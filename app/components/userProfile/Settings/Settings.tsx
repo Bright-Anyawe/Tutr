@@ -52,7 +52,7 @@ const Settings: React.FC = () => {
             </div>
             <div className="account-details">
               <img 
-                src="/Images/memoji.png" // Assuming this path based on image
+                src="/Images/avater.png" // Assuming this path based on image
                 alt="User Avatar"
                 className="settings-avatar"
               />
@@ -90,7 +90,6 @@ const Settings: React.FC = () => {
             </div>
             <div>
               {/* Security settings content goes here */}
-              <p>Password settings, 2FA, etc.</p>
               <Security />
             </div>
           </>

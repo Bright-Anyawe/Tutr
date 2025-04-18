@@ -11,6 +11,7 @@ import LessonLibraryContainer from '../components/userProfile/LessonLibrary/Less
 import ProfileSettings from '../components/userProfile/Profile/AccountSettings';
 import Analytics from '../components/userProfile/Analytics/Analytics';
 import Settings from '../components/userProfile/Settings/Settings';
+import Profile from '../components/userProfile/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,14 @@ const router = createBrowserRouter([
     element: (
       <UserProfileLayout currentPage="Settings">
         <Settings />
+      </UserProfileLayout>
+    ),
+  },
+  {
+    path: 'profile',
+    element: (
+      <UserProfileLayout currentPage="Profile">
+        <Profile />
       </UserProfileLayout>
     ),
   },
