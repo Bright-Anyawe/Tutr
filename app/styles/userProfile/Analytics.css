@@ -1,0 +1,38 @@
+
+/* Analytics Page Styles */
+.analytics-container {
+  /* Container for the analytics content within the grid panel */
+  width: 100%;
+}
+
+.analytics-title {
+  font-size: 32px; /* Match My Lessons title */
+  font-weight: 500;
+  margin: 0 0 30px 0; /* Add bottom margin */
+  color: #fff;
+}
+
+.analytics-cards {
+  display: flex;
+  gap: 20px; /* Space between cards */
+}
+
+.analytics-card {
+  background-color: #2a2a2a; /* Dark grey background from image */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
+  min-width: 150px; /* Minimum width for cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.analytics-card-label {
+  font-size: 14px;
+  color: #aaa; /* Lighter grey for label */
+  margin-bottom: 10px;
+}
+
+.analytics-card-value {
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+} 
