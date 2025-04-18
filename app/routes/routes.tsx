@@ -7,7 +7,10 @@ import StudioPage from './Studio';
 // import StudioModePage from './studio-mode';
 import LessonsRequests from '../components/LessonsRequests';
 import UserProfileLayout from '../components/userProfile/UserProfile-Layout';
-import LessonLibrary from '../components/userProfile/LessonLibrary';
+import LessonLibrary from '../components/userProfile/LessonLibrary/LessonLibrary';
+import ProfileSettings from '../components/userProfile/Profile/AccountSettings';
+import Analytics from '../components/userProfile/Analytics/Analytics';
+import Settings from '../components/userProfile/Settings/Settings';
 
 const router = createBrowserRouter([
   {
@@ -23,10 +26,6 @@ const router = createBrowserRouter([
         element: <Navigate to="/" replace />,
       },
      
-      // {
-      //   path: 'studio-mode',
-      //   element: <StudioModePage />,
-      // },
       {
         path: 'lessons-requests',
         element: <LessonsRequests />,
@@ -41,6 +40,30 @@ const router = createBrowserRouter([
     element: (
       <UserProfileLayout currentPage="My Lessons">
         <LessonLibrary />
+      </UserProfileLayout>
+    ),
+  },
+  {
+    path: 'analytics',
+    element: (
+      <UserProfileLayout currentPage="Analytics">
+        <Analytics />
+      </UserProfileLayout>
+    ),
+  },
+  {
+    path: 'profile-settings',
+    element: (
+      <UserProfileLayout currentPage="Profile Settings">
+        <ProfileSettings />
+      </UserProfileLayout>
+    ),
+  },
+  {
+    path: 'settings',
+    element: (
+      <UserProfileLayout currentPage="Settings">
+        <Settings />
       </UserProfileLayout>
     ),
   },

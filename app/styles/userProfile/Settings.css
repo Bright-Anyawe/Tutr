@@ -1,0 +1,115 @@
+
+/* Sidebar specific to the settings section */
+.settings-sidebar {
+    background-color: #1a1a1a; /* Slightly different grey from image */
+    border-radius: 8px;
+    padding: 10px 0; /* Reduced padding */
+  }
+  
+  /* Reusing .sidebar-item styles defined earlier for consistency */
+  
+  /* Content panel specific to the settings section */
+  .settings-content-panel {
+    /* Takes up the second column of the grid */
+  }
+  
+  /* Header within the settings panel */
+  .settings-header {
+    margin-bottom: 30px;
+  }
+  
+  .settings-header h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+  }
+  
+  .settings-header h2 {
+    font-size: 18px;
+    font-weight: normal;
+    opacity: 0.7;
+    margin: 0;
+  }
+  
+  /* Account details section */
+  .account-details {
+    display: flex;
+    flex-direction: column; /* Stack avatar and name section */
+    gap: 20px;
+  }
+  
+  .settings-avatar {
+    width: 80px; /* Size from image */
+    height: 80px;
+    border-radius: 8px; /* Match card rounding */
+    object-fit: cover;
+  }
+  
+  .settings-name-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+  
+  .settings-name-label {
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .settings-name-display,
+  .settings-name-input {
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid #444; /* Subtle border */
+  }
+  
+  .settings-name-display {
+    min-width: 150px; /* Give it some width */
+  }
+  
+  .settings-name-input.editing {
+    /* Styles when input is active */
+  }
+  
+  .edit-name-controls,
+  .display-name-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .settings-name-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .settings-name-button:hover {
+    background-color: #444;
+  }
+  
+  .settings-name-button.save {
+    background-color: #4CAF50; /* Example save button color */
+  }
+  
+  .settings-name-button.save:hover {
+    background-color: #45a049;
+  }
+  
+  .settings-name-button.cancel {
+    background-color: #555;
+  }
+  
+  .settings-name-button.cancel:hover {
+    background-color: #666;
+  }
+  
