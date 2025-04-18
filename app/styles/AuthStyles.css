@@ -6,6 +6,14 @@
 }
 
 /* Unauthenticated action styles */
+.unauthenticated-actions {
+  display: flex
+  ;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+}
+
 .trial-banner {
   padding: 8px;
   background: #1A1A1A;
