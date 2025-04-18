@@ -16,8 +16,13 @@ const UserProfileLayout: React.FC<UserProfileLayoutProps> = ({
   // Create a custom breadcrumb path based on current page
   const breadcrumbPath = [
     { label: 'Dashboard', path: '/dashboard', isActive: false },
-    { label: currentPage, path: `/${currentPage.toLowerCase()}`, isActive: true }
+    { label: currentPage, path: `/${currentPage.toLowerCase().replace(/ /g, '-')}`, isActive: true }
   ];
+
+  // Determine content class based on page
+  const contentClass = currentPage === 'My Lessons' 
+                       ? 'user-profile-content-grid' 
+                       : 'user-profile-content-full';
 
   return (
     <div className="user-profile-container">
@@ -31,8 +36,8 @@ const UserProfileLayout: React.FC<UserProfileLayoutProps> = ({
         <BreadcrumbNav customPath={breadcrumbPath} />
       </div>
       
-      {/* Main content area */}
-      <div className="user-profile-content">
+      {/* Main content area with conditional class */}
+      <div className={contentClass}>
         {/* Main content will be rendered here */}
         {children}
       </div>
