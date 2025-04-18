@@ -20,7 +20,7 @@ const UserProfileLayout: React.FC<UserProfileLayoutProps> = ({
   ];
 
   // Determine content class based on page
-  const contentClass = currentPage === 'My Lessons' || currentPage === 'Settings' || currentPage === 'Profile Settings'
+  const contentClass = currentPage === 'My Lessons' || currentPage === 'Settings' || currentPage === 'Profile'
                        ? 'user-profile-content-grid' 
                        : 'user-profile-content-full';
 
