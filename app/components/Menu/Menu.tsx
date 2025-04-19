@@ -6,9 +6,10 @@ import '../../styles/Menu.css';
 interface MenuProps {
   isOpen: boolean;
   onClose: () => void;
+  onLogout?: () => void; // Optional custom logout handler
 }
 
-const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
+const Menu: React.FC<MenuProps> = ({ isOpen, onClose, onLogout }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const { logout } = useAuth();
   const navigate = useNavigate();
@@ -32,9 +33,19 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
   
   const handleLogout = (e: React.MouseEvent) => {
     e.preventDefault();
-    logout();
+    
+    if (onLogout) {
+      // Use the custom logout handler if provided
+      onLogout();
+    } else {
+      // Otherwise use the default logout behavior
+      logout();
+      localStorage.removeItem("userLoginType");
+      window.dispatchEvent(new Event('storage'));
+      navigate('/');
+    }
+    
     onClose();
-    navigate('/');
   };
   
   if (!isOpen) return null;

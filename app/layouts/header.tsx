@@ -24,37 +24,58 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Check localStorage for auth state on every render
+  useEffect(() => {
+    const checkAuthState = () => {
+      const storedLoginType = localStorage.getItem('userLoginType');
+      if (storedLoginType === 'signup') {
+        setUserLoginType('signup');
+        setIsNewSignup(true);
+      } else if (storedLoginType === 'login') {
+        setUserLoginType('login');
+      }
+    };
+
+    checkAuthState();
+    
+    // Add event listener to detect localStorage changes from other components
+    window.addEventListener('storage', checkAuthState);
+    return () => window.removeEventListener('storage', checkAuthState);
+  }, []);
+
   // Update userLoginType when login status changes
   useEffect(() => {
-    if (isLoggedIn && userLoginType !== 'signup') {
-      setUserLoginType('login');
+    if (isLoggedIn) {
+      const storedLoginType = localStorage.getItem('userLoginType');
+      
+      if (storedLoginType === 'signup') {
+        setUserLoginType('signup');
+        setIsNewSignup(true);
+      } else {
+        setUserLoginType('login');
+      }
     } else if (!isLoggedIn) {
       setUserLoginType(null);
+      setIsNewSignup(false);
     }
   }, [isLoggedIn]);
-
-  useEffect(() => {
-    const storedLoginType = localStorage.getItem('userLoginType');
-    if (storedLoginType === 'signup' || storedLoginType === 'login') {
-      localStorage.removeItem('userLoginType');
-      setUserLoginType(null);
-    }
-  }, []);
 
   const handleLogin = () => {
     navigate('/auth', { state: { isLogin: true } });
   };
 
   const handleSignup = () => {
-    navigate('/auth', { state: { isLogin: false } });
+    localStorage.setItem('userLoginType', 'signup');
     setUserLoginType('signup');
-    setIsNewSignup(true); // Keep for backwards compatibility
+    setIsNewSignup(true);
+    navigate('/auth', { state: { isLogin: false } });
   };
 
   const handleLogout = () => {
     logout();
+    localStorage.removeItem('userLoginType');
     setUserLoginType(null);
-    setIsNewSignup(false); // Reset signup state
+    setIsNewSignup(false);
     navigate('/');
   };
 
@@ -69,7 +90,7 @@ const Header: React.FC = () => {
           style={{ cursor: 'pointer' }}
         />
         
-        {!userLoginType ? (
+        {!isLoggedIn && !userLoginType ? (
           // Unauthenticated header for guests
           <UnauthenticatedActions 
             onLogin={handleLogin}
@@ -84,7 +105,10 @@ const Header: React.FC = () => {
           />
         ) : (
           // Authenticated actions for new signups
-          <SignUpHeaderActions userName="New User" />
+          <SignUpHeaderActions 
+            userName="New User" 
+            onLogout={handleLogout}
+          />
         )}
         
         {isMobile && (
