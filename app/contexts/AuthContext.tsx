@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
 interface AuthContextType {
@@ -18,6 +18,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [userName, setUserName] = useState<string | null>(null);
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
 
+  // Check if user is already logged in on mount
+  useEffect(() => {
+    const storedLoginType = localStorage.getItem('userLoginType');
+    if (storedLoginType === 'login' || storedLoginType === 'signup') {
+      setIsLoggedIn(true);
+      
+      // Try to get stored username if available
+      const storedUsername = localStorage.getItem('userName');
+      if (storedUsername) {
+        setUserName(storedUsername);
+      } else {
+        setUserName(storedLoginType === 'signup' ? 'New User' : 'User');
+      }
+    }
+  }, []);
+
   const login = (email: string) => {
     setIsLoggedIn(true);
     
@@ -27,19 +43,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Capitalize first letter of username
     const formattedUsername = username.charAt(0).toUpperCase() + username.slice(1);
     
+    // Save username to localStorage
+    localStorage.setItem('userName', formattedUsername);
+    
     setUserName(formattedUsername);
   };
 
   const loginWithGoogle = () => {
     // In a real app, this would integrate with Google OAuth
     setIsLoggedIn(true);
-    setUserName("Google User"); // This would normally come from the Google profile
+    const googleUsername = "Google User"; // This would normally come from the Google profile
+    
+    // Save username to localStorage
+    localStorage.setItem('userName', googleUsername);
+    
+    setUserName(googleUsername);
   };
 
   const logout = () => {
     setIsLoggedIn(false);
     setUserName(null);
     setIsSidebarExpanded(false);
+    
+    // Clear user data from localStorage
+    localStorage.removeItem('userLoginType');
+    localStorage.removeItem('userName');
+    
+    // Trigger storage event for other components
+    window.dispatchEvent(new Event('storage'));
   };
 
   const toggleSidebar = () => {

@@ -43,6 +43,9 @@ const AuthBox: React.FC<AuthBoxProps> = ({
       localStorage.setItem('userLoginType', 'signup');
     }
     
+    // Trigger the storage event for other components listening
+    window.dispatchEvent(new Event('storage'));
+    
     loginWithGoogle();
     navigate('/');
   };
@@ -54,6 +57,9 @@ const AuthBox: React.FC<AuthBoxProps> = ({
     } else {
       localStorage.setItem('userLoginType', 'signup');
     }
+    
+    // Trigger the storage event for other components listening
+    window.dispatchEvent(new Event('storage'));
     
     // Call the provided onEmailSubmit function
     onEmailSubmit();
