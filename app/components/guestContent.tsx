@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useLocation } from 'react-router-dom';
 import Badge from "./Badge";
 import "../styles/mainContent.css";
-import { UploadButton, StudioButton } from './common/ActionButtons';
+import { UploadButton, StudioButton } from './Common/ActionButtons';
 
 function GuestContent() {
   const [searchQuery, setSearchQuery] = useState('');

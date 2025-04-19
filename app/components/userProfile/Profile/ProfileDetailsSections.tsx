@@ -57,17 +57,17 @@ const ProfileDetailsSections: React.FC = () => {
              {availabilityData.map((item, index) => (
                 <div key={index} className="pds-item availability-item">
                    <div className="pds-subject-topic">
-                        <span>{item.subject}</span>
-                        <span>{item.topic}</span>
+                        <div className="pds-subject">{item.subject}</div>
+                        <div className="pds-topic">{item.topic}</div>
                    </div>
-                   <div className="pds-days-time">
-                        <div className="pds-days">
-                            <span>Days</span>
-                            <span>{item.days}</span>
+                   <div className="pds-details-container">
+                        <div className="pds-days-container">
+                            <div className="pds-label">Days</div>
+                            <div className="pds-value">{item.days}</div>
                         </div>
-                        <div className="pds-time">
-                            <span>Time Zones</span>
-                            <span>{item.time}</span>
+                        <div className="pds-time-container">
+                            <div className="pds-label">Time Zones</div>
+                            <div className="pds-value">{item.time}</div>
                         </div>
                    </div>
                 </div>
@@ -85,17 +85,17 @@ const ProfileDetailsSections: React.FC = () => {
              {jobsData.map((item, index) => (
                 <div key={index} className="pds-item jobs-item">
                    <div className="pds-subject-topic">
-                        <span>{item.subject}</span>
-                        <span>{item.topic}</span>
+                        <div className="pds-subject">{item.subject}</div>
+                        <div className="pds-topic">{item.topic}</div>
                    </div>
-                   <div className="pds-days-time">
-                        <div className="pds-days">
-                            <span>Days</span>
-                            <span>{item.days}</span>
+                   <div className="pds-details-container">
+                        <div className="pds-days-container">
+                            <div className="pds-label">Days</div>
+                            <div className="pds-value">{item.days}</div>
                         </div>
-                        <div className="pds-time">
-                            <span>Time Zones</span>
-                            <span>{item.time}</span>
+                        <div className="pds-time-container">
+                            <div className="pds-label">Time Zones</div>
+                            <div className="pds-value">{item.time}</div>
                         </div>
                    </div>
                 </div>

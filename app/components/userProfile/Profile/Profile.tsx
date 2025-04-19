@@ -31,23 +31,29 @@ const Profile: React.FC = () => {
 
         {/* Account Section Preview */}
         <section className="profile-section account-section">
-          <h2 className="profile-section-title">Account</h2>
-          <div className="profile-detail-row">
-            <img 
-              src="/Images/avater.png" // Same avatar as settings
-              alt="User Avatar" 
-              className="profile-avatar"
-            />
-            <div className="profile-info">
-              <span className="profile-info-label">Preferred Name</span>
-              <span className="profile-info-value">{preferredName}</span>
-            </div>
-            <button 
-              onClick={() => handleNavigateToSettings('Account')}
-              className="profile-change-button"
-            >
-              Change name
-            </button>
+          <div className="profile-avatar-container">
+             <img
+               src="/Images/avater.png"
+               alt="User Avatar"
+               className="profile-avatar"
+             />
+          </div>
+          <div className="profile-name-section">
+             <label htmlFor="preferredNameInput" className="profile-info-label">Preferred Name</label>
+             <div className="profile-input-group">
+               <input
+                 type="text"
+                 id="preferredNameInput"
+                 className="profile-name-input"
+                 placeholder="e.g. Sergio Ramos"
+               />
+               <button
+                 onClick={() => handleNavigateToSettings('Account')}
+                 className="profile-change-button"
+               >
+                 Change name
+               </button>
+             </div>
           </div>
         </section>
 
@@ -55,28 +61,28 @@ const Profile: React.FC = () => {
         <section className="profile-section security-section">
           <h2 className="profile-section-title">Security</h2>
           <div className="profile-detail-row email-row">
-             <div className="profile-info">
+             <div className="profile-info-group">
                 <span className="profile-info-label">Email</span>
                 <span className="profile-info-value">{email}</span>
-            </div>
-            <button 
-              onClick={() => handleNavigateToSettings('Security')}
-              className="profile-change-button"
-            >
-              Change email
-            </button>
+             </div>
+             <button
+               onClick={() => handleNavigateToSettings('Security')}
+               className="profile-change-button"
+             >
+               Change email
+             </button>
           </div>
           <div className="profile-detail-row password-row">
-             <div className="profile-info">
+             <div className="profile-info-group">
                 <span className="profile-info-label">Password</span>
                 <span className="profile-info-description">Set a personal password to log in to your account</span>
-            </div>
-            <button 
-              onClick={() => handleNavigateToSettings('Security')}
-              className="profile-change-button"
-            >
-              Change Password
-            </button>
+             </div>
+             <button
+               onClick={() => handleNavigateToSettings('Security')}
+               className="profile-change-button"
+             >
+               Change Password
+             </button>
           </div>
         </section>
 
