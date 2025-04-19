@@ -60,6 +60,16 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
   const handleVerification = (verificationCode: string) => {
     setIsVerifying(true);
     
+    // Store the login/signup type in localStorage
+    if (isLogin) {
+      localStorage.setItem('userLoginType', 'login');
+    } else {
+      localStorage.setItem('userLoginType', 'signup');
+    }
+    
+    // Trigger the storage event for other components listening
+    window.dispatchEvent(new Event('storage'));
+    
     // Simulate verification delay and show success state
     setTimeout(() => {
       // Mark verification as successful
@@ -79,13 +89,24 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({
           navigate('/');
         } else {
           // Send new users to onboarding
-          navigate('/onboarding');
+          navigate('/onboarding', { 
+            state: { 
+              email: email,
+              fromSignup: true
+            }
+          });
         }
       }, 1000);
     }, 800);
   };
 
   const handlePasswordLogin = (password: string) => {
+    // Store login state in localStorage
+    localStorage.setItem('userLoginType', 'login');
+    
+    // Trigger the storage event for other components listening
+    window.dispatchEvent(new Event('storage'));
+    
     // Submit password for login
     onPasswordLogin(password);
     

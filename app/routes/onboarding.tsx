@@ -11,20 +11,30 @@ const OnboardingPage = () => {
   
   const totalSteps = 3;
   const userEmail = location.state?.email || '';
+  const fromSignup = location.state?.fromSignup || false;
   
   useEffect(() => {
+    // If this is a new signup, make sure localStorage reflects that
+    if (fromSignup) {
+      localStorage.setItem('userLoginType', 'signup');
+      window.dispatchEvent(new Event('storage'));
+    }
+    
     // If we don't have user data and we're not coming from auth, redirect to auth
     if (!userName && !userEmail) {
       navigate('/auth');
     }
-  }, [userName, userEmail, navigate]);
+  }, [userName, userEmail, navigate, fromSignup]);
   
   const handleContinue = () => {
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Onboarding complete - update localStorage to indicate user is now logged in
-      localStorage.setItem('userLoginType', 'login');
+      // Keep userLoginType as 'signup' to maintain SignUpHeaderActions
+      // Do NOT transition to 'login'
+      
+      // Trigger the storage event for other components listening
+      window.dispatchEvent(new Event('storage'));
       
       // Navigate to homepage
       navigate('/', { 

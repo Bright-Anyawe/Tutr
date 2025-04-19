@@ -38,6 +38,9 @@ const Auth: React.FC = () => {
       localStorage.setItem('userLoginType', 'signup');
     }
     
+    // Trigger the storage event for other components listening
+    window.dispatchEvent(new Event('storage'));
+    
     // Login the user
     login(email);
     
@@ -62,6 +65,9 @@ const Auth: React.FC = () => {
     
     // Store login state in localStorage
     localStorage.setItem('userLoginType', 'login');
+    
+    // Trigger the storage event for other components listening
+    window.dispatchEvent(new Event('storage'));
     
     // Login the user and redirect to the app root page
     login(email);
