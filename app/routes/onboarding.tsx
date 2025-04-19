@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import AuthFooter from '../components/Auth/AuthFooter';
 import styles from '../styles/onboarding.module.css';
 
 const OnboardingPage = () => {
@@ -110,7 +111,7 @@ const OnboardingPage = () => {
       </main>
       
       <footer className={styles.footer}>
-        <p className={styles.poweredBy}>Powered by Tutr AI</p>
+        <AuthFooter/>
       </footer>
     </div>
   );
