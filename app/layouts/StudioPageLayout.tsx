@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import CourseHeader from '../components/CourseHeader';
-import ChatInterface from '../components/studio/ChatInterface';
-import StudioView from '../components/studio/StudioView';
-import { CourseProvider } from '../components/CourseContext';
+import CourseHeader from '../components/Headers/CourseHeader';
+import ChatInterface from '../components/Studio/ChatInterface';
+import StudioView from '../components/Studio/StudioView';
+import { CourseProvider } from '../contexts/CourseContext';
 import '../styles/layouts/StudioPageLayout.css';
 import Header from '~/layouts/Header';
 

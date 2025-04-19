@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/CourseHeader.css';
-import { useCourseContext } from './CourseContext';
+import '../../styles/CourseHeader.css';
+import { useCourseContext } from '../../contexts/CourseContext';
 
 interface CourseHeaderProps {
   className?: string;

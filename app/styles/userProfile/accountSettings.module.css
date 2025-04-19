@@ -1,0 +1,48 @@
+/* app/styles/accountSettings.module.css */
+
+.container {
+  background-color: #1a1a1a; /* Dark background for the container */
+  padding: 8px; /* Padding around the list */
+  border-radius: 8px; /* Slightly rounded corners for the container */
+  max-width: 300px; /* Optional: Set a max width */
+}
+
+.list {
+  list-style: none; /* Remove default list bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  margin-bottom: 4px; /* Space between items */
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.link {
+  display: block; /* Make the link/button fill the item */
+  padding: 12px 16px; /* Padding inside each item */
+  color: #b0b0b0; /* Light grey text color */
+  text-decoration: none; /* Remove underline from links */
+  border-radius: 6px; /* Rounded corners for hover/active states */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  background: none; /* Ensure no default background */
+  border: none; /* Ensure no default border */
+  width: 100%; /* Make button take full width */
+  text-align: left; /* Align text to the left */
+  font-size: 16px; /* Match font size */
+}
+
+.link:hover {
+  background-color: #2c2c2c; /* Slightly lighter background on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+.link.active {
+  background-color: #333333; /* Distinct background for active item */
+  color: #ffffff; /* White text for active item */
+  font-weight: 500; /* Slightly bolder text for active item */
+} 

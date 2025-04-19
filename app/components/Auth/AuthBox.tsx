@@ -36,13 +36,27 @@ const AuthBox: React.FC<AuthBoxProps> = ({
   };
 
   const handleGoogleLogin = () => {
-    loginWithGoogle();
+    // Store user type in localStorage before calling loginWithGoogle
     if (isLogin) {
       localStorage.setItem('userLoginType', 'login');
     } else {
       localStorage.setItem('userLoginType', 'signup');
     }
+    
+    loginWithGoogle();
     navigate('/');
+  };
+
+  const handleEmailSubmit = () => {
+    // Store the login/signup type in localStorage when starting email process
+    if (isLogin) {
+      localStorage.setItem('userLoginType', 'login');
+    } else {
+      localStorage.setItem('userLoginType', 'signup');
+    }
+    
+    // Call the provided onEmailSubmit function
+    onEmailSubmit();
   };
 
   return (
@@ -67,7 +81,7 @@ const AuthBox: React.FC<AuthBoxProps> = ({
       
       <button 
         className={`${styles.button} ${styles.emailButton}`}
-        onClick={onEmailSubmit}
+        onClick={handleEmailSubmit}
         disabled={!isEmailValid}
       >
         Continue with email

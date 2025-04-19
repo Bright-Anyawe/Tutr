@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import '../../styles/Menu.css';
 
 interface MenuProps {
@@ -9,6 +10,8 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
   const menuRef = useRef<HTMLDivElement>(null);
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Close menu when clicking outside
@@ -26,6 +29,13 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, onClose]);
+  
+  const handleLogout = (e: React.MouseEvent) => {
+    e.preventDefault();
+    logout();
+    onClose();
+    navigate('/');
+  };
   
   if (!isOpen) return null;
 
@@ -45,7 +55,7 @@ const Menu: React.FC<MenuProps> = ({ isOpen, onClose }) => {
           <Link to="/settings">Settings</Link>
         </li>
         <li className="menu-item logout">
-          <Link to="/logout">Log Out</Link>
+          <a href="#" onClick={handleLogout}>Log Out</a>
         </li>
       </ul>
     </div>

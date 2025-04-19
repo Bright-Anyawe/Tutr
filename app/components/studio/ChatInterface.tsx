@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../../styles/studio/ChatInterface.css';
-import SearchForm from '../common/searchForm';
+import SearchForm from '../Common/searchForm';
 import MessageReact from './messageReact';
 import CopyEdit from './Copy-Edit';
 

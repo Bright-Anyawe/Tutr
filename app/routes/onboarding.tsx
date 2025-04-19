@@ -23,7 +23,10 @@ const OnboardingPage = () => {
     if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Onboarding complete - navigate to homepage
+      // Onboarding complete - update localStorage to indicate user is now logged in
+      localStorage.setItem('userLoginType', 'login');
+      
+      // Navigate to homepage
       navigate('/', { 
         state: { 
           onboardingComplete: true,

@@ -20,6 +20,13 @@
   color: #fff;
 }
 
+h3.pfc-section-title { /* PFC = Profile Content Sections */
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  color: #fff;
+}
+
 /* Change Button (reused style) */
 .pfc-change-button {
   background-color: #333;
@@ -40,7 +47,8 @@
 
 /* Subjects/Topics Section */
 .subjects-section {
-  /* Specific styles if needed */
+  /* Specific styles for the subjects section */
+  margin-bottom: 20px;
 }
 
 .subjects-list {
@@ -51,26 +59,27 @@
 
 .subject-item {
   display: flex;
-  justify-content: space-between; /* Push button to the right */
-  align-items: center;
+  align-items: flex-start; /* Align items to the top */
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .subject-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px; /* Tighter spacing between main and sub */
 }
 
 .subject-main {
   font-size: 14px;
-  color: #ccc;
+  font-weight: 500;
+  color: #fff; /* Brighter color for main subject */
+  margin-bottom: 4px;
 }
 
 .subject-sub {
-  font-size: 12px;
-  color: #888;
+  font-size: 13px;
+  color: #888; /* Lighter color for sub-topic */
+  margin-left: 0px; /* No indentation needed per image */
 }
 
 /* Video Sections (Intro & Demo) */
@@ -82,7 +91,6 @@
 
 .video-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
@@ -90,13 +98,14 @@
 
 .video-placeholder {
   width: 100%;
-  max-width: 400px; /* Limit width of placeholder */
+  max-width: 300px; /* Limit width of placeholder */
   aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
   background-color: #2a2a2a; /* Match other dark elements */
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   overflow: hidden;
 }
 

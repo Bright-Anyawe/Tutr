@@ -2,9 +2,8 @@ import "../styles/header.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import HeaderActions from '../components/Headers/headerActions'; // Restored import with corrected casing
-import DashboardHeader from '../components/Headers/dashboardHeader'; // Corrected casing
-import AuthenticatedActions from '../components/Headers/AuthenticatedActions';
+import DashboardHeader from '../components/Headers/DashboardHeader';
+import SignUpHeaderActions from '../components/Headers/SignUpHeaderActions';
 import UnauthenticatedActions from '../components/Headers/UnauthenticatedActions';
 
 const Header: React.FC = () => {
@@ -85,7 +84,7 @@ const Header: React.FC = () => {
           />
         ) : (
           // Authenticated actions for new signups
-          <AuthenticatedActions userName="New User" />
+          <SignUpHeaderActions userName="New User" />
         )}
         
         {isMobile && (

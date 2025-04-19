@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/AuthStyles.css';
+import '../../styles/AuthStyles.css';
 
 interface UnauthenticatedActionsProps {
   onLogin: () => void;

@@ -85,6 +85,21 @@
   background-color: #444;
 }
 
+.profile-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#preferredNameInput {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 6px 12px; /* Slightly smaller buttons */
+  border-radius: 6px;
+  width: 160px;
+}
+
 /* Responsive adjustments if needed */
 @media (max-width: 768px) {
   .profile-detail-row {

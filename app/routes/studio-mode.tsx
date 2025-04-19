@@ -1,5 +1,5 @@
 import React from 'react';
-import StudioView from '../components/studio/StudioView';
+import StudioView from '../components/Studio/StudioView';
 import { useNavigate } from 'react-router-dom';
 import '../styles/studio/studio-mode.css';
 

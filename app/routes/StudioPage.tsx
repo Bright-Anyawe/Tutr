@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import StudioView from '../components/studio/StudioView';
-import ChatInterface from '../components/studio/ChatInterface';
-import CourseHeader from '../components/CourseHeader';
-import { CourseProvider } from '../components/CourseContext';
+import StudioView from '../components/Studio/StudioView';
+import ChatInterface from '../components/Studio/ChatInterface';
+import CourseHeader from '../components/Headers/CourseHeader';
+import { CourseProvider } from '../contexts/CourseContext';
 import Header from '../layouts/Header';
 import '../styles/StudioPage.css';
 

@@ -15,7 +15,6 @@
 
 .pds-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
   gap: 15px;
@@ -60,7 +59,7 @@
 
 /* Experience Section Specifics */
 .experience-item {
-  grid-template-columns: 1fr auto auto; /* Subject/Topic | Rate | Level */
+  grid-template-columns: 0 auto auto; /* Subject/Topic | Rate | Level */
   align-items: center; /* Vertically align center */
 }
 
@@ -90,28 +89,50 @@
 /* Availability & Jobs Section Specifics */
 .availability-item,
 .jobs-item {
-  grid-template-columns: 1fr auto; /* Subject/Topic | Days/Time Group */
+  display: flex
+  ;
+      /* justify-content: space-between; */
+      align-items: flex-start;
+      gap: 15rem;
 }
 
-.pds-days-time {
-  display: flex;
-  gap: 40px; /* Space between Days and Time columns */
-  justify-self: end; /* Align this group to the right */
-}
-
-.pds-days,
-.pds-time {
+.pds-subject-topic {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-size: 12px;
+}
+
+.pds-subject {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.pds-topic {
+  font-size: 13px;
   color: #888;
 }
 
-.pds-days span:first-child,
-.pds-time span:first-child {
-  font-size: 14px; /* Label slightly larger */
+.pds-details-container {
+  display: flex;
+  gap: 40px; /* Space between Days and Time columns */
+}
+
+.pds-days-container,
+.pds-time-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pds-label {
+  font-size: 14px;
   color: #aaa;
+}
+
+.pds-value {
+  font-size: 13px;
+  color: #ccc;
 }
 
 /* Rating & Language Placeholder */
@@ -132,11 +153,10 @@
   }
   .availability-item,
   .jobs-item {
-     grid-template-columns: 1fr; /* Stack everything */
-     gap: 10px;
+     flex-direction: column;
+     gap: 15px;
   }
-   .pds-days-time {
-      justify-self: start; /* Align left when stacked */
+  .pds-details-container {
       gap: 20px;
   }
 } 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import AuthenticatedActions from './AuthenticatedActions';
+import AuthenticatedActions from './SignUpHeaderActions';
 import UnauthenticatedActions from './UnauthenticatedActions';
 import '../../styles/headerActions.css';
 

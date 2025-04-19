@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/auth.module.css';
-import AuthBox from '../components/AuthBox';
-import VerifyEmail from '../components/VerifyEmail';
-import AuthFooter from '../components/AuthFooter';
+import AuthBox from '../components/Auth/AuthBox';
+import VerifyEmail from '../components/Auth/VerifyEmail';
+import AuthFooter from '../components/Auth/AuthFooter';
 
 const Auth: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -31,6 +31,13 @@ const Auth: React.FC = () => {
     // Here you would typically verify the code with your backend
     console.log('Verification code:', code);
     
+    // Store the login/signup type in localStorage
+    if (isLogin) {
+      localStorage.setItem('userLoginType', 'login');
+    } else {
+      localStorage.setItem('userLoginType', 'signup');
+    }
+    
     // Login the user
     login(email);
     
@@ -52,6 +59,9 @@ const Auth: React.FC = () => {
   const handlePasswordLogin = (password: string) => {
     // Here you would typically verify the password with your backend
     console.log('Login with password:', password);
+    
+    // Store login state in localStorage
+    localStorage.setItem('userLoginType', 'login');
     
     // Login the user and redirect to the app root page
     login(email);
