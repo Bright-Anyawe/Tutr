@@ -99,7 +99,11 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
               <img src="/Images/arrow-down.png" alt="" />
             )}
           </div>
-          <Menu isOpen={showMenu} onClose={() => setShowMenu(false)} />
+          <Menu 
+            isOpen={showMenu} 
+            onClose={() => setShowMenu(false)} 
+            onLogout={onLogout}
+          />
         </>
       )}
     </div>

@@ -13,19 +13,13 @@ const SignUpHeaderActions: React.FC<SignUpHeaderActionsProps> = ({
   userName = "User",
   onLogout,
 }) => {
-  // const { userName } = useAuth();
-  const [showDropdown, setShowDropdown] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
   const { logout } = useAuth();
   const navigate = useNavigate();
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
   };
 
   const handleLogout = () => {
@@ -34,7 +28,10 @@ const SignUpHeaderActions: React.FC<SignUpHeaderActionsProps> = ({
     } else {
       logout();
       localStorage.removeItem("userLoginType");
-      setShowDropdown(false);
+      
+      // Trigger the storage event for other components listening
+      window.dispatchEvent(new Event('storage'));
+      
       navigate("/");
     }
   };
@@ -68,8 +65,12 @@ const SignUpHeaderActions: React.FC<SignUpHeaderActionsProps> = ({
           )}{" "}
         </div>
 
-        {showDropdown && (
-          <Menu isOpen={showDropdown} onClose={() => setShowDropdown(false)} />
+        {showMenu && (
+          <Menu 
+            isOpen={showMenu} 
+            onClose={() => setShowMenu(false)} 
+            onLogout={handleLogout} 
+          />
         )}
       </div>
     </section>
