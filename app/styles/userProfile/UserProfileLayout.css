@@ -1,0 +1,218 @@
+/* 
+ * UserProfileLayout.css
+ * Main layout for user profile pages
+ */
+
+.user-profile-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Header section */
+.user-profile-header {
+  width: 100%;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+}
+
+/* Breadcrumb section */
+.user-profile-breadcrumb {
+  width: 100%;
+  z-index: 90;
+}
+
+/* Main content area - GRID layout (for My Lessons, etc.) */
+.user-profile-content-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 5fr; /* Sidebar | Content Panel */
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Main content area - FULL layout (for Analytics, Profile, Settings) */
+.user-profile-content-full {
+  flex: 1;
+  padding: 20px; /* Apply consistent padding */
+}
+
+/* Responsive adjustments for GRID layout */
+@media (max-width: 768px) {
+  .user-profile-content-grid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+}
+
+/* Ensure the layout fills the available space */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar specific to the lesson library section */
+.lesson-sidebar {
+  background-color: #111; /* Match image background */
+  border-radius: 8px;
+  padding: 20px 0; /* Vertical padding */
+}
+
+.sidebar-item {
+  padding: 12px 20px; /* Padding for each item */
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.sidebar-item:hover {
+  opacity: 1;
+}
+
+.sidebar-item.active {
+  opacity: 1;
+  font-weight: 500;
+  background-color: #222; /* Highlight color for active item */
+  border-radius: 4px; /* Slight rounding for active item */
+  margin: 0 10px; /* Margin to inset active highlight */
+  padding: 12px 10px; /* Adjust padding for inset look */
+}
+
+/* Content panel specific to the lesson library section */
+.lesson-content-panel {
+  /* This panel takes up the second column of the grid */
+  /* No specific background needed if container is black */
+}
+
+/* Profile/Content header styles (used inside the panel) */
+.profile-header {
+  margin-bottom: 30px;
+}
+
+.profile-header h1 {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.profile-header h2 {
+  font-size: 18px;
+  font-weight: normal;
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* Lesson cards list */
+.lesson-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lesson-card {
+  display: flex;
+  gap: 20px;
+  max-width: 800px;
+}
+
+.lesson-thumbnail {
+  width: 200px;
+  height: 120px;
+  background-color: #222;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.play-button {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.play-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.play-button svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff; /* Ensure play icon is white */
+}
+
+.lesson-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lesson-course {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.lesson-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.lesson-meta {
+  font-size: 14px;
+  color: #999;
+}
+
+/* Analytics Page Styles (Restored) */
+.analytics-container {
+  /* Container for the analytics content within the full panel */
+  width: 100%;
+}
+
+.analytics-title {
+  font-size: 32px; /* Match My Lessons title */
+  font-weight: 500;
+  margin: 0 0 30px 0; /* Add bottom margin */
+  color: #fff;
+}
+
+.analytics-cards {
+  display: flex;
+  gap: 20px; /* Space between cards */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+}
+
+.analytics-card {
+  background-color: #2a2a2a; /* Dark grey background from image */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
+  min-width: 150px; /* Minimum width for cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.analytics-card-label {
+  font-size: 14px;
+  color: #aaa; /* Lighter grey for label */
+  margin-bottom: 10px;
+}
+
+.analytics-card-value {
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+}

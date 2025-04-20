@@ -1,0 +1,44 @@
+
+.search-container {
+    max-width: 100%;
+  }
+
+  .search-form-container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; */
+    padding: 14px;
+    background-color: black;
+  }
+
+  .search-dot.left {
+    left: calc(50% - 4px);
+  }
+
+  .search-dot.right {
+    left: calc(50% + 1px);
+  }
+
+  .main-content {
+    margin-left: 240px;
+    padding: 16px;
+    padding-top: 84px;
+  }
+
+  .welcome-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .layout-wrapper {
+    padding-top: 60px;
+  }
+
+  .layout-wrapper.sidebar-visible {
+    margin-left: 240px;
+  }
+
+  .main-content {
+    padding: 24px;
+  }

@@ -1,0 +1,93 @@
+/*
+ * Profile.css
+ * Styles specific to the Profile page component
+ */
+
+/* Container for the sidebar (using AccountSettings) */
+.profile-sidebar-container {
+  /* Uses AccountSettings styles, potentially adjust align-self if needed */
+  align-self: start; 
+}
+
+/* Container for the main content panel on the right */
+.profile-content-panel {
+  /* Takes up the right column in the UserProfileLayout grid */
+}
+
+.profile-main-title {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 30px 0;
+  color: #fff;
+}
+
+.profile-section {
+  margin-bottom: 40px; /* Space between Account and Security sections */
+}
+
+.profile-section-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  color: #fff;
+}
+
+.profile-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px; /* Space between rows within security */
+  flex-wrap: wrap; /* Allow wrapping */
+}
+
+.profile-avatar {
+  width: 60px; /* Smaller avatar on profile preview */
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex-grow: 1; /* Allow info section to take available space */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-info-label {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.profile-info-value {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.profile-info-description {
+  font-size: 12px;
+  color: #888;
+}
+
+.profile-change-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px; /* Slightly smaller buttons */
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap; /* Prevent button text wrapping */
+}
+
+.profile-change-button:hover {
+  background-color: #444;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+  .profile-detail-row {
+    /* Adjust layout for smaller screens if needed */
+  }
+} 

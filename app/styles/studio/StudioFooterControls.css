@@ -1,0 +1,84 @@
+/* app/styles/studio/StudioFooterControls.css */
+
+.studio-footer-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px; /* Vertical and horizontal padding */
+  background-color: #1a1a1a; /* Slightly lighter dark background for contrast */
+  border-top: 1px solid #333; /* Subtle top border */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-left-controls,
+.footer-right-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between buttons in each group */
+}
+
+.footer-button {
+  background-color: #333333; /* Dark grey button background */
+  color: #E0E0E0; /* Light text color */
+  border: none;
+  border-radius: 6px; /* Rounded corners */
+  padding: 8px 12px; /* Button padding */
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* Space between icon and text inside button */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  line-height: 1; /* Ensure text aligns vertically */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.footer-button:hover {
+  background-color: #444444; /* Slightly lighter grey on hover */
+}
+
+.footer-button:active {
+  background-color: #2a2a2a; /* Slightly darker when pressed */
+}
+
+.footer-button svg {
+  display: block;
+  width: 16px; /* Icon size */
+  height: 16px;
+  stroke: currentColor; /* Make SVG use button's text color */
+}
+
+/* Specific styles for icon-only buttons */
+.undo-button,
+.redo-button {
+  padding: 8px; /* Slightly less horizontal padding for icon-only */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .studio-footer-controls {
+    flex-direction: column; /* Stack groups vertically */
+    align-items: stretch; /* Stretch items to full width */
+    padding: 10px;
+    gap: 10px; /* Add gap between stacked groups */
+  }
+
+  .footer-left-controls,
+  .footer-right-controls {
+    justify-content: center; /* Center buttons within their groups */
+    flex-wrap: wrap; /* Allow buttons to wrap */
+     gap: 6px;
+  }
+
+  .footer-button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+   .undo-button,
+   .redo-button {
+     padding: 6px; 
+   }
+} 

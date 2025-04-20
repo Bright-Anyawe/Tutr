@@ -1,0 +1,151 @@
+.studioPage {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #080808;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.lessonInfo {
+  background: #1A1A1A;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.lessonInfo h2 {
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.lessonInfo p {
+  color: #808080;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.lessonInfo strong {
+  color: #ffffff;
+  margin-right: 0.5rem;
+}
+
+.studioContainer {
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.lessonInfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.course {
+  font-weight: 500;
+}
+
+.topic {
+  font-style: italic;
+}
+
+.student {
+  color: #2563EB;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.welcomeMessage {
+  background-color: rgba(37, 99, 235, 0.1);
+  border-left: 4px solid #2563EB;
+  padding: 16px 24px;
+  border-radius: 4px;
+}
+
+.welcomeMessage h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.welcomeMessage p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.workspaceArea {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .studioContainer {
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .lessonInfo {
+    font-size: 14px;
+  }
+  
+  .welcomeMessage h2 {
+    font-size: 18px;
+  }
+  
+  .welcomeMessage p {
+    font-size: 14px;
+  }
+} 

@@ -1,0 +1,60 @@
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #ADADAD;
+  border: none;
+  background-color: #1A1A1A;
+  min-width: 160px;
+  height: 48px;
+}
+
+.uploadButton {
+  background-color: #3f3f3f;
+}
+
+.uploadButton:hover {
+  background-color: #252525;
+}
+
+.studioButton {
+  background-color: #3f3f3f;
+}
+
+.studioButton:hover {
+  background-color: #252525;
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.buttonText {
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+} 
+
+
+.search-button {
+  width: 30px;
+  height: 30px;
+  background: #1C75BD;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.search-button:hover {
+  background: #2286d4;
+}

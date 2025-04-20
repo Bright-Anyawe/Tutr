@@ -1,0 +1,61 @@
+.footer {
+    display: flex;
+    align-items: center;
+    width: 315px;
+    height: 55px;
+    position: relative;
+    top: 1019px;
+    left: 707px;
+    gap: 24px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+}
+
+.reallyAiBadge {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.poweredBy {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 1440px) {
+    .footer {
+        position: static;
+        margin-top: clamp(24px, 4vw, 32px);
+        width: 100%;
+        max-width: 315px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 24px 16px;
+    }
+
+    .description {
+        margin-top: clamp(40px, 10vw, 60px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

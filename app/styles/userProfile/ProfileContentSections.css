@@ -1,0 +1,114 @@
+/*
+ * ProfileContentSections.css
+ * Styles for the Subjects, Intro Video, Demo Lesson sections on Profile page
+ */
+
+.profile-content-sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between main sections */
+}
+
+.profile-content-section {
+  /* Common styles for each section can go here */
+}
+
+.pfc-section-title { /* PFC = Profile Content Sections */
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  color: #fff;
+}
+
+/* Change Button (reused style) */
+.pfc-change-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  height: fit-content; /* Prevent stretching */
+}
+
+.pfc-change-button:hover {
+  background-color: #444;
+}
+
+/* Subjects/Topics Section */
+.subjects-section {
+  /* Specific styles if needed */
+}
+
+.subjects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between subject items */
+}
+
+.subject-item {
+  display: flex;
+  justify-content: space-between; /* Push button to the right */
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.subject-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.subject-main {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.subject-sub {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Video Sections (Intro & Demo) */
+.video-section {
+  display: flex;
+  flex-direction: column; /* Title/Button above placeholder */
+  gap: 15px;
+}
+
+.video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.video-placeholder {
+  width: 100%;
+  max-width: 400px; /* Limit width of placeholder */
+  aspect-ratio: 16 / 9; /* Maintain video aspect ratio */
+  background-color: #2a2a2a; /* Match other dark elements */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.play-icon-placeholder {
+  width: 50px;
+  height: 50px;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-placeholder {
+      max-width: 100%; /* Allow full width on smaller screens */
+  }
+} 

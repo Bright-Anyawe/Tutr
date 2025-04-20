@@ -1,0 +1,211 @@
+/* src/components/Login/Login.module.css */
+.container {
+    background-color: #000000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(24px, 5vw, 48px) 20px;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    color: #ffffff;
+  }
+  
+  .header {
+    font-size: clamp(1.7rem, 3vw, 2rem);
+    font-weight: 500;
+    margin-bottom: clamp(30px, 1vh, 10px);
+  }
+  
+  .loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: auto 0;
+  }
+  
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: clamp(16px, 3vw, 24px);
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  .subtitle {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: clamp(24px, 4vw, 32px);
+}
+
+.button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.googleButton {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.googleButton:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 16px 0;
+    font-size: 14px;
+}
+
+.input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.emailButton {
+    background-color: #0066FF;
+    color: #ffffff;
+}
+
+.emailButton:hover {
+    background-color: #0052CC;
+}
+
+.bottomContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 60px;
+    width: 100%;
+}
+
+.description {
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-align: center;
+    max-width: min(887px, 90vw);
+    margin: 0 auto;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    width: 315px;
+    height: 55px;
+    position: relative;
+    top: 1019px;
+    left: 707px;
+    gap: 24px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+}
+
+.reallyAiBadge {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.poweredBy {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 1440px) {
+    .footer {
+        position: static;
+        margin-top: clamp(24px, 4vw, 32px);
+        width: 100%;
+        max-width: 315px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 24px 16px;
+    }
+
+    .description {
+        margin-top: clamp(40px, 10vw, 60px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 20px 12px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .header {
+        font-size: 2.5rem;
+        margin-bottom: 140px;
+    }
+
+    .title {
+        font-size: 4.5rem;
+    }
+
+    .description {
+        font-size: 2.5rem;
+    }
+}
+  
+.authContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #080808;
+  padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .authContainer {
+    padding: 16px;
+  }
+}
+  
