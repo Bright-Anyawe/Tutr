@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/mainContent.css";
+import "../../styles/mainContent.css";
 
 interface BadgeProps {
   text?: string;
