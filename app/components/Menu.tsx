@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import '../../styles/Menu.css';
+import '../styles/Menu.css';
 
 interface MenuProps {
   isOpen: boolean;
