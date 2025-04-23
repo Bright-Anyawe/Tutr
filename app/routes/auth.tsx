@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/auth.module.css';
 import AuthBox from '../components/Auth/AuthBox';
 import VerifyEmail from '../components/Auth/VerifyEmail';
-import AuthFooter from '../components/Auth/AuthFooter';
+import { AuthFooter } from '../components/Auth/AuthFeatures';
 
 const Auth: React.FC = () => {
   const [email, setEmail] = useState('');

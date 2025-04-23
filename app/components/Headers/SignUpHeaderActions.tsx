@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import "../../styles/AuthStyles.css";
-import Menu from "../Menu/Menu";
+import Menu from "../Menu";
 
 interface SignUpHeaderActionsProps {
   userName?: string;

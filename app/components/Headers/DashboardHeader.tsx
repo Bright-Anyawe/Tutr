@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import '../../styles/dashboardHeader.css';
-import Menu from '../Menu/Menu';
+import Menu from '../Menu';
 import NotificationDropdown from '../Notification/NotificationDropdown';
 
 interface DashboardHeaderProps {

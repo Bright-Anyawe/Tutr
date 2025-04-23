@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import AuthFooter from '../components/Auth/AuthFooter';
-import styles from '../styles/onboarding.module.css';
+import { AuthFooter } from '../components/Auth/AuthFeatures';
+  import styles from '../styles/onboarding.module.css';
 
 const OnboardingPage = () => {
   const [currentStep, setCurrentStep] = useState(0);

@@ -1,11 +1,14 @@
+import Badge from "../common/Badge";
+import styles from "../../styles/auth.module.css";
+
 import { useState } from 'react';
-import styles from '../../styles/passwordLogin.module.css';
+import passwordStyles from '../../styles/passwordLogin.module.css';
 
 interface PasswordLoginProps {
   onPasswordSubmit: (password: string) => void;
 }
 
-const PasswordLogin: React.FC<PasswordLoginProps> = ({ onPasswordSubmit }) => {
+export const PasswordLogin: React.FC<PasswordLoginProps> = ({ onPasswordSubmit }) => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
@@ -18,21 +21,21 @@ const PasswordLogin: React.FC<PasswordLoginProps> = ({ onPasswordSubmit }) => {
 
   return (
     <div>
-      <div className={styles.separator}>or use password</div>
+      <div className={passwordStyles.separator}>or use password</div>
 
       <form onSubmit={handlePasswordSubmit}>
-        <div className={styles.passwordContainer}>
+        <div className={passwordStyles.passwordContainer}>
           <input
             type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder="123456"
-            className={styles.passwordInput}
+            className={passwordStyles.passwordInput}
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className={styles.eyeIcon}
+            className={passwordStyles.eyeIcon}
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
             👁
@@ -40,7 +43,7 @@ const PasswordLogin: React.FC<PasswordLoginProps> = ({ onPasswordSubmit }) => {
         </div>
         <button 
           type="submit" 
-          className={styles.loginButton}
+          className={passwordStyles.loginButton}
           disabled={!password.trim()}
         >
           Login
@@ -50,4 +53,11 @@ const PasswordLogin: React.FC<PasswordLoginProps> = ({ onPasswordSubmit }) => {
   );
 };
 
-export default PasswordLogin;   
+export const AuthFooter = () => {
+    return (
+        <div><div className={styles.footer}>
+        <Badge />
+        <span className={styles.poweredBy}>Powered by Really AI</span>
+      </div></div>
+    )
+}
