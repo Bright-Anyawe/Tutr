@@ -1,0 +1,86 @@
+/* Main container */
+.studio-page-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #0f0f0f;
+  color: white;
+  overflow: hidden;
+}
+
+/* Main header area */
+.main-header-container {
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Course header area */
+.course-header-container {
+  flex-shrink: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Main content container with grid layout */
+.studio-content-container {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 380px 1fr;
+  gap: 10px;
+  overflow: hidden;
+  transition: grid-template-columns 0.3s ease;
+  background-color: black;
+
+}
+
+.studio-content-container.with-chat {
+  grid-template-columns: 500px 1fr;
+}
+
+.studio-content-container.no-chat {
+  grid-template-columns: 1fr;
+}
+
+/* Left panel - Chat interface */
+.chat-interface-container {
+  /* border-right: 1px solid rgba(255, 255, 255, 0.1); */
+  overflow: hidden;
+  background-color: #121212;
+  height: 100%;
+}
+
+/* Right panel - Studio view */
+.studio-view-container {
+  padding: 10px;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 1200px) {
+  .studio-content-container {
+    grid-template-columns: 320px 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .studio-content-container {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .studio-content-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .chat-interface-container {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

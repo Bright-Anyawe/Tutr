@@ -1,14 +1,19 @@
 import React from 'react';
 import "../styles/mainContent.css";
 
-const Badge: React.FC = () => {
+interface BadgeProps {
+  text?: string;
+}
+
+const Badge: React.FC<BadgeProps> = ({ text = "Heally AI" }) => {
   return (
     <div className="badge">
       <div className="badge-content">
         <img 
           src="/Icons/aiIcon.png" 
-          alt="AI Icon" 
+          alt=""
           className="badge-icon"
+          aria-hidden="true"
         />
         <span className="badge-text">Heally AI</span>
       </div>

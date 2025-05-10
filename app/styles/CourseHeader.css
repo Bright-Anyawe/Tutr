@@ -1,0 +1,38 @@
+.course-header {
+  background-color: #111111;
+  color: white;
+  width: 100%;
+  padding: 0px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.course-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.course-code {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.course-name {
+  font-size: 14px;
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .course-header {
+    padding: 12px 16px;
+  }
+  
+  .course-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+} 

@@ -1,0 +1,226 @@
+/* Main Container */
+.studio-container {
+  display: flex;
+  flex-direction: column;
+  width: 91%;
+  height: 100%;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  overflow: hidden;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+/* Maximized state */
+.studio-container.maximized {
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  border-radius: 0;
+}
+
+/* Header */
+.studio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #121212;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: move; /* Indicates draggable */
+  user-select: none; /* Prevents text selection while dragging */
+}
+
+.studio-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.studio-icon {
+  display: flex;
+  align-items: center;
+}
+
+.studio-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.control-button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.control-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Resize handles */
+.resize-handle {
+  position: absolute;
+  background-color: transparent;
+  z-index: 10;
+}
+
+/* Directional resize handles */
+.resize-handle.e {
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: e-resize;
+}
+
+.resize-handle.s {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  cursor: s-resize;
+}
+
+.resize-handle.w {
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  cursor: w-resize;
+}
+
+.resize-handle.n {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  cursor: n-resize;
+}
+
+/* Corner resize handles */
+.resize-handle.ne {
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  cursor: ne-resize;
+}
+
+.resize-handle.se {
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  cursor: se-resize;
+}
+
+.resize-handle.sw {
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  cursor: sw-resize;
+}
+
+.resize-handle.nw {
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  cursor: nw-resize;
+}
+
+/* Flexible body container */
+.studio-body-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Content Area */
+.studio-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+  background-color: #212121;
+}
+
+.chart-container {
+  max-width: 500px;
+  max-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.pie-chart {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.chart-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Chat Panel */
+.studio-chat-panel {
+  width: 320px;
+  flex-shrink: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .studio-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  
+  .resize-handle {
+    display: none;
+  }
+}
+
+/* Minimized state */
+.studio-container.minimized {
+  width: 300px !important;
+  height: 200px !important;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.studio-container.minimized .studio-body-container {
+  overflow: hidden;
+}
+
+.studio-container.minimized .chart-container {
+  transform: scale(0.5);
+  transform-origin: center;
+}

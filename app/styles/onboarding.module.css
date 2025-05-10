@@ -1,0 +1,145 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #080808;
+  color: #ffffff;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: clamp(2rem, 5vh, 3rem) 0;
+}
+
+.logo {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 clamp(1rem, 5vw, 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  color: #ffffff;
+}
+
+.placeholderArea {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 60ch;
+  margin-bottom: clamp(2rem, 5vh, 3rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.progressIndicator {
+  display: flex;
+  gap: 12px;
+  margin-bottom: clamp(2rem, 5vh, 3rem);
+}
+
+.progressDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.progressDot.active {
+  background-color: #2563EB;
+  transform: scale(1.2);
+}
+
+.continueButton {
+  padding: clamp(0.8rem, 2vh, 1.2rem) clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 8px;
+  background-color: #2563EB;
+  color: white;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.continueButton:hover {
+  background-color: #1D4ED8;
+}
+
+.footer {
+  padding: clamp(1.5rem, 3vh, 2rem) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.poweredBy {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .placeholderArea {
+    aspect-ratio: 3/2;
+  }
+}
+
+@media (max-width: 480px) {
+  .placeholderArea {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* Handle very tall screens */
+@media (min-height: 900px) {
+  .content {
+    justify-content: center;
+  }
+}
+
+/* Handle very short screens */
+@media (max-height: 700px) {
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .placeholderArea {
+    aspect-ratio: 16/8;
+    margin-bottom: 16px;
+  }
+  
+  .description {
+    margin-bottom: 16px;
+  }
+  
+  .progressIndicator {
+    margin-bottom: 16px;
+  }
+} 

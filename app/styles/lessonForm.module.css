@@ -1,0 +1,132 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #0D0D0D;
+  border-radius: 12px;
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1001;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0 0 32px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #FFFFFF;
+  font-size: 16px;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.optional {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: normal;
+}
+
+.studentInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.atSymbol {
+  position: absolute;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.studentInput .input {
+  padding-left: 32px;
+}
+
+.instruction {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cancelButton,
+.continueButton {
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #FFFFFF;
+}
+
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.continueButton {
+  background: #0066FF;
+  border: none;
+  color: #FFFFFF;
+}
+
+.continueButton:hover {
+  background: #0052CC;
+} 
